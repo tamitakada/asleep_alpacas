@@ -6,4 +6,4 @@
 
 1. Liesel Wong- Backend Flask Developer
 
-1. Wen Hao- Backend Flask Developer
+1. Wen Hao Dong- Backend Flask Developer
