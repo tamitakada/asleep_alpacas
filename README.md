@@ -15,3 +15,4 @@
 2. Cd into the working directory: `cd asleep_alpacas/app`
 3. Install the required modules: `pip install -r requirements.txt`
 4. Run the Python file holding the app: `python3 __init__.py`
+5. In a browser, paste in `https://127.0.0.1:5000/`
