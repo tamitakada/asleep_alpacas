@@ -1,5 +1,8 @@
 yoonahC -- 2021-10-28 21:40
-Revised design doc: added error pages, reordered tables based on feedback from The Best Cameron
+Helped revise the design document.
 
 justinZ -- 2021-10-28 21:51
-Changed the design document based on group feedback from Class today. Made things more clear especially in our roles and maps.
+Changed the design document based on group feedback from Class today. Made things more clear especially in our roles and maps based on feedback from The Best Cameron.
+
+yoonahC -- 2021-10-29 09:06
+Updated README.md to include launch codes and *spiced* up the team roster and roles.
