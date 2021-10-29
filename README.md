@@ -11,7 +11,7 @@
 
 # Launch Codes:
 
-1. Clone Asleep Alpaca's repository: `git clone https://github.com/zou-Justin/asleep_alpacas.git`
+1. Clone Asleep Alpacas' repository: `git clone https://github.com/zou-Justin/asleep_alpacas.git`
 2. Cd into the working directory: `cd asleep_alpacas/app`
 3. Install the required modules: `pip install -r requirements.txt`
 4. Run the Python file: `python3 __init__.py`
