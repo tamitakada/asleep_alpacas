@@ -1,7 +1,7 @@
 # P0 Name by Asleep Alpacas
 
-* Justin Zou
-  * Project Manager/SQLite Database
+* Justin Zou (Project Manager)
+  * SQLite Database
 * Yoonah Chang
   * Front End Developer
 * Wen Hao Dong
