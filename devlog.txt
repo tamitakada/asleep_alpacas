@@ -7,5 +7,11 @@ Changed the design document based on group feedback from Class today. Made thing
 yoonahC -- 2021-10-29 09:06
 Updated README.md to include launch codes and *spiced* up the team roster and roles.
 
+wenhaoD -- 2021-10-29 09:23
+Set up basic flask server with routes.
+
 yoonahC -- 2021-11-01 09:08
 Updated requirements.txt to include modules for user to install: https://boscacci.medium.com/why-and-how-to-make-a-requirements-txt-f329c685181e
+
+wenhaoD & lieselW -- 2021-11-01 09:23
+Added basic templates and added login.
