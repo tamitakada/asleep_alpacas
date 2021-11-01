@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template
+from flask import Flask, request, redirect, render_template, session, request
 
 app = Flask(__name__)
 
@@ -15,6 +15,8 @@ def logout():
 def login():
     if request.method == "POST":
         # Check login
+        if "username" in request.form:
+            session["user"] = request.form["username"]
         return redirect("/")
     else:
         # Display login page
@@ -64,4 +66,5 @@ def story(story_id):
 
 if __name__ == "__main__":
     app.debug = True
+    app.secret_key = "It's Rewind Time"
     app.run()
