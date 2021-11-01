@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, render_template
 
 app = Flask(__name__)
 
@@ -18,7 +18,7 @@ def login():
         return redirect("/")
     else:
         # Display login page
-        return "login"
+        return render_template("login.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
