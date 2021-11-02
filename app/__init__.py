@@ -2,17 +2,29 @@ from flask import Flask, request, redirect, render_template, session, request
 
 app = Flask(__name__)
 
+def is_logged_in():
+    return "user" in session
+
 @app.route("/")
 def home():
+    if is_logged_in():
+        return f"home -- welcome, {session['user']}"
+
     return "home"
 
 @app.route("/logout")
 def logout():
     print("logout page...redirecting to homepage")
+    if is_logged_in():
+        session.pop("user")
+
     return redirect("/")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if is_logged_in():
+        return redirect("/")
+
     if request.method == "POST":
         # Check login
         if "username" in request.form:
@@ -24,6 +36,9 @@ def login():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if is_logged_in():
+        return redirect("/")
+
     if request.method == "POST":
         # Try to register account
         return redirect("/")
@@ -33,6 +48,9 @@ def register():
 
 @app.route("/create", methods=["GET", "POST"])
 def create():
+    if not is_logged_in():
+        return "You must be logged in!"
+
     if request.method == "POST":
         # Add story to database
         return redirect("/")
