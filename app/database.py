@@ -23,3 +23,5 @@ if __init__.is_logged_in():
 #users
 c.execute("CREATE TABLE IF NOT EXIST contributors (user_id INTEGER, story_id INTEGER)")
 #edit story
+db.commit()
+db.close() 
