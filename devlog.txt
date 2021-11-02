@@ -22,6 +22,9 @@ Added basic templates and added login.
 wenhaoD -- 2021-11-02 11:40
 Added extra login checks and implemented logging out.
 
+justinZ -- 2021-11-02 14:00
+Worked on downloading Sqlite3 properly, learned about winpty. Did a bsic database function
+
 wenhaoD -- 2021-11-02 18:20
 Added unimplemented utility functions in database.py for future use in Flask app.
 Only fetch_user_id is implemented but is untested.
