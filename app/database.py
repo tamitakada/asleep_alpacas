@@ -63,14 +63,10 @@ def register_user(username, password):
     Tries to add the given username and password into the database.
     Returns False if the user already exists, True if it successfully added the user.
     """
-    isInDatabase = False;
-    for i,j in c.execute('SELECT username, password FROM users'):
+    for i in c.execute('SELECT username FROM users'):
         if i == username:
             return False
-
-    # TODO: implementation
-    # Suggestion: look into AUTO INCREMENT for sqlite for the user id
-
+    c.execute("INSERT INTO users(id,username,password) VALUES(username, password)")
     return True
 
 
