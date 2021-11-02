@@ -29,3 +29,7 @@ wenhaoD -- 2021-11-02 18:20
 Added unimplemented utility functions in database.py for future use in Flask app.
 Only fetch_user_id is implemented but is untested.
 Functions contain docstrings describing their purpose.
+
+justinZ -- 2021-11-02 19:40
+Worked on implementing the register_user function
+Tested how loops worked in Sqlite3
