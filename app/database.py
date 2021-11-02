@@ -1,6 +1,6 @@
 import sqlite3
 
-from flask import sessions
+# from flask import Flask
 
 DB_FILE="database.db"
 
@@ -14,9 +14,14 @@ db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 c = db.cursor()
 
 # Create tables if they don't exist
-c.execute("CREATE TABLE IF NOT EXIST stories (id INTEGER, author_id INTEGER, title TEXT, full_story TEXT, last_update TEXT)")
-c.execute("CREATE TABLE IF NOT EXIST users (id INTEGER, username TEXT, password TEXT)")
-c.execute("CREATE TABLE IF NOT EXIST contributions (user_id INTEGER, story_id INTEGER)")
+c.execute("CREATE TABLE IF NOT EXISTS stories (id INTEGER, author_id INTEGER, title TEXT, full_story TEXT, last_update TEXT)")
+c.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER, username TEXT, password TEXT)")
+c.execute("CREATE TABLE IF NOT EXISTS contributions (user_id INTEGER, story_id INTEGER)")
+# c.execute("INSERT INTO users VALUES (1, 'justin', 'story')")
+# for i,j in c.execute('SELECT username, password FROM users'):
+#     print (i)
+#     print (j)
+#test code
 
 # Save and close
 db.commit()
@@ -58,11 +63,15 @@ def register_user(username, password):
     Tries to add the given username and password into the database.
     Returns False if the user already exists, True if it successfully added the user.
     """
+    isInDatabase = False;
+    for i,j in c.execute('SELECT username, password FROM users'):
+        if i == username:
+            return False
 
     # TODO: implementation
     # Suggestion: look into AUTO INCREMENT for sqlite for the user id
 
-    return False
+    return True
 
 
 def has_user_contributed(user_id, story_id):
