@@ -14,7 +14,7 @@ c.execute("CREATE TABLE IF NOT EXIST users (id INTEGER, username TEXT, password 
 if __init__.is_logged_in():
     id = id + 1
     command = f"""
-            INSERT INTO courses VALUES
+            INSERT INTO users VALUES
               ({id},
               {repr(sessions['user'])}
               {repr(sessions['user'])})
