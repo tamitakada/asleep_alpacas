@@ -19,5 +19,10 @@ Made a basic structure for the database and added database.py
 wenhaoD & lieselW -- 2021-11-01 09:23
 Added basic templates and added login.
 
-wenhaoD -- 2021--11-02 11:40
+wenhaoD -- 2021-11-02 11:40
 Added extra login checks and implemented logging out.
+
+wenhaoD -- 2021-11-02 18:20
+Added unimplemented utility functions in database.py for future use in Flask app.
+Only fetch_user_id is implemented but is untested.
+Functions contain docstrings describing their purpose.

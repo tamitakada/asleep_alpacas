@@ -3,6 +3,13 @@ import sqlite3
 from flask import sessions
 
 DB_FILE="database.db"
+
+###############
+#             #
+# Basic Setup #
+#             #
+###############
+
 db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 c = db.cursor()
 
@@ -11,5 +18,78 @@ c.execute("CREATE TABLE IF NOT EXIST stories (id INTEGER, author_id INTEGER, tit
 c.execute("CREATE TABLE IF NOT EXIST users (id INTEGER, username TEXT, password TEXT)")
 c.execute("CREATE TABLE IF NOT EXIST contributions (user_id INTEGER, story_id INTEGER)")
 
+# Save and close
 db.commit()
 db.close() 
+
+#####################
+#                   #
+# Utility Functions #
+#                   #
+#####################
+
+
+def fetch_user_id(username, password):
+    """
+    Gets the id of the user with the given username/password combination from the database.
+    Returns None if the combination is incorrect.
+    """
+
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    
+    c.execute("""
+        SELECT id
+        FROM   users
+        WHERE  username = ?
+             , password = ?
+    """, (username, password))
+
+    # user_id is None if no matches were found
+    user_id = c.fetchone()
+
+    db.close()
+
+    return user_id
+
+
+def register_user(username, password):
+    """
+    Tries to add the given username and password into the database.
+    Returns False if the user already exists, True if it successfully added the user.
+    """
+
+    # TODO: implementation
+    # Suggestion: look into AUTO INCREMENT for sqlite for the user id
+
+    return False
+
+
+def has_user_contributed(user_id, story_id):
+    """
+    Returns whether or not the given user_id has contributed to the story_id.
+    """
+
+    # TODO: implementation
+
+    return False
+
+
+def fetch_story(story_id):
+    """
+    Returns a dictionary containing the information of the story with the given id.
+    """
+
+    # TODO: implementation
+
+
+def fetch_story_ids(contributor_id = None):
+    """
+    If contributor_id is None, return a list of all stories' ids.
+    If a contributer_id is given, return a list of all of their contributions' ids.
+    """
+
+    # TODO: implementation
+
+    return []
+
