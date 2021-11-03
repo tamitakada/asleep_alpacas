@@ -98,3 +98,16 @@ def fetch_story_ids(contributor_id = None):
 
     return []
 
+def create_story(author_id, title, body):
+    """
+    Adds a story to the database with the appropriate information.
+    """
+
+    # TODO: implementation
+
+def append_to_story(contributor_id, story_id, content):
+    """
+    Adds to the
+    """
+
+    # TODO: implementation
