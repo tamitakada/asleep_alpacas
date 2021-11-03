@@ -17,7 +17,7 @@ c = db.cursor()
 c.execute("CREATE TABLE IF NOT EXISTS stories (id INTEGER, author_id INTEGER, title TEXT, full_story TEXT, last_update TEXT)")
 c.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER, username TEXT, password TEXT)")
 c.execute("CREATE TABLE IF NOT EXISTS contributions (user_id INTEGER, story_id INTEGER)")
-# c.execute("INSERT INTO users VALUES (1, 'justin', 'story')")
+c.execute("INSERT INTO users VALUES (1, 'justin', 'story')")
 # for i,j in c.execute('SELECT username, password FROM users'):
 #     print (i)
 #     print (j)
@@ -25,7 +25,7 @@ c.execute("CREATE TABLE IF NOT EXISTS contributions (user_id INTEGER, story_id I
 
 # Save and close
 db.commit()
-db.close() 
+db.close()
 
 #####################
 #                   #
@@ -42,7 +42,7 @@ def fetch_user_id(username, password):
 
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    
+
     c.execute("""
         SELECT id
         FROM   users
@@ -66,7 +66,7 @@ def register_user(username, password):
     for i in c.execute('SELECT username FROM users'):
         if i == username:
             return False
-    c.execute("INSERT INTO users(id,username,password) VALUES(username, password)")
+    c.execute("""INSERT INTO users(id,username,password) VALUES(username = ?, password = ?)""",(username,password))
     return True
 
 
@@ -97,4 +97,3 @@ def fetch_story_ids(contributor_id = None):
     # TODO: implementation
 
     return []
-
