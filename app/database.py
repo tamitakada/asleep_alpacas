@@ -41,7 +41,7 @@ c.execute("""
 
 # Save and close
 db.commit()
-db.close() 
+db.close()
 
 #####################
 #                   #
@@ -58,7 +58,7 @@ def fetch_user_id(username, password):
 
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    
+
     c.execute("""
         SELECT id
         FROM   users
@@ -82,7 +82,7 @@ def register_user(username, password):
     for i in c.execute('SELECT username FROM users'):
         if i == username:
             return False
-    c.execute("INSERT INTO users(id,username,password) VALUES(username, password)")
+    c.execute("""INSERT INTO users(id,username,password) VALUES(username = ?, password = ?)""",(username,password))
     return True
 
 
