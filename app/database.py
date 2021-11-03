@@ -14,9 +14,25 @@ db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 c = db.cursor()
 
 # Create tables if they don't exist
-c.execute("CREATE TABLE IF NOT EXISTS stories (id INTEGER, author_id INTEGER, title TEXT, full_story TEXT, last_update TEXT)")
-c.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER, username TEXT, password TEXT)")
-c.execute("CREATE TABLE IF NOT EXISTS contributions (user_id INTEGER, story_id INTEGER)")
+c.execute("""
+    CREATE TABLE IF NOT EXISTS stories (
+      id INTEGER,
+      author_id INTEGER,
+      title TEXT,
+      full_story TEXT,
+      last_update TEXT
+    )""")
+c.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+      id INTEGER,
+      username TEXT,
+      password TEXT
+    )""")
+c.execute("""
+    CREATE TABLE IF NOT EXISTS contributions (
+      user_id INTEGER,
+      story_id INTEGER
+    )""")
 # c.execute("INSERT INTO users VALUES (1, 'justin', 'story')")
 # for i,j in c.execute('SELECT username, password FROM users'):
 #     print (i)
