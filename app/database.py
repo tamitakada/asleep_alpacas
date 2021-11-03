@@ -101,7 +101,7 @@ def has_user_contributed(user_id, story_id):
              , story_id = ?
     """, (user_id, story_id))
     data = c.fetchone()
-    
+
     db.commit()
     db.close()
 
