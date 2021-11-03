@@ -75,9 +75,21 @@ def has_user_contributed(user_id, story_id):
     Returns whether or not the given user_id has contributed to the story_id.
     """
 
-    # TODO: implementation
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
 
-    return False
+    c.execute("""
+        SELECT *
+        FROM   contributions
+        WHERE  user_id = ?
+             , story_id = ?
+    """, (user_id, story_id))
+    data = c.fetchone()
+    
+    db.commit()
+    db.close()
+
+    return data is not None
 
 
 def fetch_story(story_id):
@@ -97,3 +109,20 @@ def fetch_story_ids(contributor_id = None):
     # TODO: implementation
 
     return []
+<<<<<<< HEAD
+=======
+
+def create_story(author_id, title, body):
+    """
+    Adds a story to the database with the appropriate information.
+    """
+
+    # TODO: implementation
+
+def append_to_story(contributor_id, story_id, content):
+    """
+    Adds to the
+    """
+
+    # TODO: implementation
+>>>>>>> 2766f5165f00905468ddce846f6520150b7481b7
