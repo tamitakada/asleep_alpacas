@@ -85,7 +85,7 @@ def has_user_contributed(user_id, story_id):
              , story_id = ?
     """, (user_id, story_id))
     data = c.fetchone()
-    
+
     db.commit()
     db.close()
 
@@ -109,8 +109,6 @@ def fetch_story_ids(contributor_id = None):
     # TODO: implementation
 
     return []
-<<<<<<< HEAD
-=======
 
 def create_story(author_id, title, body):
     """
@@ -123,6 +121,3 @@ def append_to_story(contributor_id, story_id, content):
     """
     Adds to the
     """
-
-    # TODO: implementation
->>>>>>> 2766f5165f00905468ddce846f6520150b7481b7
