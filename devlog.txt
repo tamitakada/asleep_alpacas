@@ -37,3 +37,6 @@ Tested how loops worked in Sqlite3
 wenhaoD -- 2021-11-03 09:05
 Implemented has_user_contributed function -- needs testing.
 Updated tables' id column to be PRIMARY KEY.
+
+yoonahC -- 2021-11-03 15:49
+Finished login.html page/home page.
