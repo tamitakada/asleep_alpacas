@@ -34,5 +34,6 @@ justinZ -- 2021-11-02 19:40
 Worked on implementing the register_user function
 Tested how loops worked in Sqlite3
 
-wenhaoD -- 2021-11-03 08:56
+wenhaoD -- 2021-11-03 09:05
 Implemented has_user_contributed function -- needs testing.
+Updated tables' id column to be PRIMARY KEY.
