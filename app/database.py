@@ -16,7 +16,7 @@ c = db.cursor()
 # Create tables if they don't exist
 c.execute("""
     CREATE TABLE IF NOT EXISTS stories (
-      id INTEGER,
+      id INTEGER PRIMARY KEY,
       author_id INTEGER,
       title TEXT,
       full_story TEXT,
@@ -24,7 +24,7 @@ c.execute("""
     )""")
 c.execute("""
     CREATE TABLE IF NOT EXISTS users (
-      id INTEGER,
+      id INTEGER PRIMARY KEY,
       username TEXT,
       password TEXT
     )""")
