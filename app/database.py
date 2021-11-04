@@ -40,9 +40,9 @@ c.execute("""
 #test code
 
 # Save and close
+
 db.commit()
 db.close()
-
 #####################
 #                   #
 # Utility Functions #
@@ -79,11 +79,16 @@ def register_user(username, password):
     Tries to add the given username and password into the database.
     Returns False if the user already exists, True if it successfully added the user.
     """
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
     for i in c.execute('SELECT username FROM users'):
-        if i == username:
+        if i[0] == username:
             return False
-    c.execute("""INSERT INTO users(id,username,password) VALUES(username = ?, password = ?)""",(username,password))
+    c.execute("""INSERT INTO users(username,password) VALUES(?, ?)""",(username,password))
+    db.commit()
+    db.close()
     return True
+
 
 
 def has_user_contributed(user_id, story_id):
@@ -103,7 +108,7 @@ def has_user_contributed(user_id, story_id):
     data = c.fetchone()
 
     db.commit()
-    db.close()
+    db.close()justin
 
     return data is not None
 
