@@ -38,15 +38,19 @@ wenhaoD -- 2021-11-03 09:05
 Implemented has_user_contributed function -- needs testing.
 Updated tables' id column to be PRIMARY KEY.
 
-justinZ -- 2021-11-03 9:10
+justinZ -- 2021-11-03 09:10
 Worked more on testing and fixing up the database file
 Talked with teammates about future plans
 
 yoonahC -- 2021-11-03 15:49
 Finished login.html page/home page. Deleted home page. Added new post page. Added create account page.
 
-lieselW -- 2021-11-04 1:17
+lieselW -- 2021-11-04 01:17
 Added get and post for username and password
 
-justinZ -- 2021-11-04 9:20
+justinZ and wenhaoD -- 2021-11-04 09:20
 Finished up register_user
+
+yoonahC -- 2021-11-04 09:24
+Created new login page. Edited register and home pages. Edited gitignore file. 
+
