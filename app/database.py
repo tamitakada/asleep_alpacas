@@ -116,7 +116,6 @@ def fetch_story(story_id):
     """
     Returns a dictionary containing the information of the story with the given id.
     """
-`
     # TODO: implementationusername
 
 
@@ -136,14 +135,19 @@ def create_story(author_id, title, body):
     """
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("""INSERT INTO stories(title,body) VALUES(?, ?)""",(title,body))
+    c.execute("""INSERT INTO stories(author_id,title,body) VALUES(?,?,?)""",(author_id,title,body))
     db.commit()
     db.close()
     # TODO: implementation
 
 def append_to_story(contributor_id, story_id, content):
     """
-    Adds to the
+    Adds to the story.
     """
-
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("""INSERT INTO contributions(user_id,story_id) VALUES(?,?)""",(contributor_id,story_id))
+    c.execute("""INSERT INTO stories(last_update) VALUES(?)""",(content))
+    db.commit()
+    db.close()
     # TODO: implementation
