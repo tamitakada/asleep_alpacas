@@ -36,7 +36,8 @@ def login():
             pas = request.args['password']
     #verify this user and password exists
     #try:
-
+    #    if database.fetch_user_id(session["user"],  pas) == None:
+                        
     #except:
     #   return render_template('login.html', explain="seems like something went wrong! try again")
     else:
