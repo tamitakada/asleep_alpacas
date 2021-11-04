@@ -56,3 +56,6 @@ Created new login page. Edited register and home pages. Edited gitignore file.
 
 lieselW -- 2021-11-04 09:37
 called database.py function in __init__.py and worked out password and username design
+
+justinZ -- 2021-11-04 18:26
+Finished up two more functions, create_story and append_to_story
