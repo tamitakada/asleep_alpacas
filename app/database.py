@@ -55,7 +55,6 @@ def fetch_user_id(username, password):
     Gets the id of the user with the given username/password combination from the database.
     Returns None if the combination is incorrect.
     """
-
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
@@ -108,7 +107,7 @@ def has_user_contributed(user_id, story_id):
     data = c.fetchone()
 
     db.commit()
-    db.close()justin
+    db.close()
 
     return data is not None
 
@@ -117,8 +116,8 @@ def fetch_story(story_id):
     """
     Returns a dictionary containing the information of the story with the given id.
     """
-
-    # TODO: implementation
+`
+    # TODO: implementationusername
 
 
 def fetch_story_ids(contributor_id = None):
@@ -135,7 +134,11 @@ def create_story(author_id, title, body):
     """
     Adds a story to the database with the appropriate information.
     """
-
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    c.execute("""INSERT INTO stories(title,body) VALUES(?, ?)""",(title,body))
+    db.commit()
+    db.close()
     # TODO: implementation
 
 def append_to_story(contributor_id, story_id, content):
