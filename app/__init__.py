@@ -26,17 +26,17 @@ def login():
         return redirect("/")
     if request.method == 'GET':
         # Check login
-        if "username" in request.args && "password" in request.args:
+        if "username" in request.args and "password" in request.args:
             session["user"] = request.args["username"]
             pas = request.args['password']
     if request.method == "POST":
         # Check login
-        if "username" in request.form && "password" in request.form:
+        if "username" in request.form and "password" in request.form:
             session["user"] = request.form["username"]
-            pas = request.args['password'] 
+            pas = request.args['password']
     #verify this user and password exists
     #try:
-        
+
     #except:
     #   return render_template('login.html', explain="seems like something went wrong! try again")
     else:
