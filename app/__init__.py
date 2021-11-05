@@ -57,6 +57,9 @@ def register():
         return render_template('home.html')
     if "newusername" in request.args and "newpassword" in request.args:
         if request.method == 'GET':
+            #button to redirect to login page
+            # if request.args.get("login"):
+            #    return render_template("login.html")
             # Check login
             if database.register_user(request.args["newusername"], request.args["newpassword"]) == False:
                 return render_template('register.html', explain = "username already exists")
@@ -64,6 +67,9 @@ def register():
             else:
                 return render_template('login.html')
         if request.method == 'POST':
+            #button to redirect to login page
+            # if request.form.get("login"):
+            #    return render_template("login.html")
             # Check login
             if database.register_user(request.form["newusername"], request.form["newpassword"]) == False:
                 return render_template('register.html', explain = "username already exists or wrong values entered")
