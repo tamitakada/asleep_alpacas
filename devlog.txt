@@ -73,3 +73,6 @@ Edited home page, login, and register pages. Added a redirect to login page in t
 
 wenhaoD -- 2021-11-05 0:26
 Updated flask app to incorrporate more of the database functions (append and create).
+
+lieselW -- 2021-11-05 9:34
+attempted to add a button that returns to the login screen from the register page
