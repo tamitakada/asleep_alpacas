@@ -31,19 +31,17 @@ def login():
             if "username" in request.args and "password" in request.args:
                 username = request.args["username"]
                 pas = request.args["password"]
-                print("meow")
         if request.method == "POST":
             # Check login
             if "username" in request.form and "password" in request.form:
                 username = request.form["username"]
                 pas = request.form["password"]
-                print("meow2")
         # verify this user and password exists
         if database.fetch_user_id(username,  pas) != None:
             # Display login page
-            print("meow3")
             session["user"] = username
             return redirect("/")
+        # if it doesn't, return to home
         else:
             return render_template('home.html')
     except:
@@ -74,7 +72,6 @@ def register():
                 return render_template('login.html')
     #if not, stay on login page
     else:
-        print("last else")
         return render_template('register.html')
 
 @app.route("/create", methods=["GET", "POST"])
