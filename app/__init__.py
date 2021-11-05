@@ -83,7 +83,8 @@ def create():
 
     if request.method == "POST":
         # Add story to database
-        database
+        user_id = session["user_id"]
+        database.create_story(user_id, "[placeholder_title]", "[placeholder_body]")
         return redirect("/")
     else:
         # Display create page
@@ -99,15 +100,18 @@ def story(story_id):
     Using angle brackets in the route means it'll pass the value
     of it as a parameter to the function
     """
+    if not is_logged_in():
+        return "You must be logged in!"
 
-    user_has_contributed = True # placeholder variable
+    user_id = session["user_id"]
 
-    if user_has_contributed:
+    if has_user_contributed(user_id, story_id):
         # Display full story
         return f"story with id of {story_id}"
     elif request.method == "POST":
         # Add to story
         # Display full story
+        append_to_story(user_id, story_id, "[placeholder_content]")
         return f"story with id of {story_id}"
     else:
         # Display edit page
