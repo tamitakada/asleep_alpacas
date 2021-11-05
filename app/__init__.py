@@ -1,4 +1,5 @@
 from flask import Flask, request, redirect, render_template, session, request
+import database
 
 app = Flask(__name__)
 
@@ -10,7 +11,7 @@ def home():
     if is_logged_in():
         return f"home -- welcome, {session['user']}"
 
-    return "home"
+    return render_template('home.html')
 
 @app.route("/logout")
 def logout():
@@ -22,39 +23,59 @@ def logout():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if is_logged_in():
-        return redirect("/")
-    if request.method == 'GET':
-        # Check login
-        if "username" in request.args and "password" in request.args:
-            session["user"] = request.args["username"]
-            pas = request.args['password']
-    if request.method == "POST":
-        # Check login
-        if "username" in request.form and "password" in request.form:
-            session["user"] = request.form["username"]
-            pas = request.args['password']
-    #verify this user and password exists
-    #try:
-    #    if database.fetch_user_id(session["user"],  pas) == None:
-                        
+    try: 
+        if is_logged_in():
+            return redirect("/")
+        if request.method == 'GET':
+            # Check login
+            if "username" in request.args and "password" in request.args:
+                username = request.args["username"]
+                pas = request.args["password"]
+                print("meow")
+        if request.method == "POST":
+            # Check login
+            if "username" in request.form and "password" in request.form:
+                username = request.form["username"]
+                pas = request.form["password"]
+                print("meow2")
+        # verify this user and password exists
+        if database.fetch_user_id(username,  pas) != None:
+            # Display login page
+            print("meow3")
+            session["user"] = username
+            return redirect("/")
+        else:
+            return render_template('home.html')
+    except:
+        return render_template('login.html')
+    
     #except:
-    #   return render_template('login.html', explain="seems like something went wrong! try again")
-    else:
-        # Display login page
-        return render_template("login.html")
+    #   return render_template('login.html', explain=
+    # "seems like something went wrong! check your username and password combination! you may also make a new account")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if is_logged_in():
-        return redirect("/")
-
-    if request.method == "POST":
-        # Try to register account
-        return redirect("/")
+        return render_template('home.html')
+    if "newusername" in request.args and "newpassword" in request.args:
+        if request.method == 'GET':
+            # Check login
+            if database.register_user(request.args["newusername"], request.args["newpassword"]) == False:
+                return render_template('register.html', explain = "username already exists")
+            #if username doesn't exist, the account is created and sent to login page
+            else:
+                return render_template('login.html')
+        if request.method == 'POST':
+            # Check login
+            if database.register_user(request.form["newusername"], request.form["newpassword"]) == False:
+                return render_template('register.html', explain = "username already exists")
+            #if username doesn't exist, the account is created and sent to login page
+            else:
+                return render_template('login.html')
+    #if not, stay on login page
     else:
-        # Display register page
-        return "register"
+        print("last else")
+        return render_template('register.html')
 
 @app.route("/create", methods=["GET", "POST"])
 def create():

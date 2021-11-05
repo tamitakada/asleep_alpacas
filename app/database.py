@@ -62,7 +62,7 @@ def fetch_user_id(username, password):
         SELECT id
         FROM   users
         WHERE  username = ?
-             , password = ?
+        AND    password = ?
     """, (username, password))
 
     # user_id is None if no matches were found
