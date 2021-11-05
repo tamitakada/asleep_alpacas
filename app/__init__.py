@@ -44,8 +44,10 @@ def login():
             # Adds user and user id to session
             session["user"] = username
             session["user_id"] = user_id
-
-        return redirect("/")
+            return redirect("/")
+        # if it doesn't, return to home
+        else:
+            return render_template('login.html', explain = "login information is wrong")
     except:
         return render_template('login.html')
     
@@ -68,7 +70,7 @@ def register():
         if request.method == 'POST':
             # Check login
             if database.register_user(request.form["newusername"], request.form["newpassword"]) == False:
-                return render_template('register.html', explain = "username already exists")
+                return render_template('register.html', explain = "username already exists or wrong values entered")
             #if username doesn't exist, the account is created and sent to login page
             else:
                 return render_template('login.html')
