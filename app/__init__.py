@@ -18,6 +18,7 @@ def logout():
     print("logout page...redirecting to homepage")
     if is_logged_in():
         session.pop("user")
+        session.pop("user_id")
 
     return redirect("/")
 
@@ -36,14 +37,15 @@ def login():
             if "username" in request.form and "password" in request.form:
                 username = request.form["username"]
                 pas = request.form["password"]
+
         # verify this user and password exists
-        if database.fetch_user_id(username,  pas) != None:
-            # Display login page
+        user_id = database.fetch_user_id(username, pas)
+        if user_id is not None:
+            # Adds user and user id to session
             session["user"] = username
-            return redirect("/")
-        # if it doesn't, return to home
-        else:
-            return render_template('home.html')
+            session["user_id"] = user_id
+
+        return redirect("/")
     except:
         return render_template('login.html')
     
@@ -81,6 +83,7 @@ def create():
 
     if request.method == "POST":
         # Add story to database
+        database
         return redirect("/")
     else:
         # Display create page
