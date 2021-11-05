@@ -67,3 +67,6 @@ Finished up two more functions, create_story and append_to_story
 
 lieselW -- 2021-11-04 10:42
 added in register user functionality in flask, resolved errors in the login function, made login only accept passwords inside database. took out print statements 
+
+yoonahC -- 2021-11-04 09:22
+Edited home page, login, and register pages. Added a redirect to login page in the register page. Edited home page to have a logout redirect and to display results of the conditional.

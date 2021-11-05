@@ -102,7 +102,7 @@ def has_user_contributed(user_id, story_id):
         SELECT *
         FROM   contributions
         WHERE  user_id = ?
-             , story_id = ?
+             AND story_id = ?
     """, (user_id, story_id))
     data = c.fetchone()
 
@@ -116,7 +116,11 @@ def fetch_story(story_id):
     """
     Returns a dictionary containing the information of the story with the given id.
     """
-    # TODO: implementationusername
+    stories = {}
+    for i in c.execute("""SELECT full_story FROM stories WHERE story_id = ?""", (story_id)):
+        stories[story_id] = i
+    return stories
+    # TODO: implementationusern open theame
 
 
 def fetch_story_ids(contributor_id = None):
@@ -124,10 +128,15 @@ def fetch_story_ids(contributor_id = None):
     If contributor_id is None, return a list of all stories' ids.
     If a contributer_id is given, return a list of all of their contributions' ids.
     """
-
-    # TODO: implementation
-
-    return []
+    contributors = []
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+    for i,j in c.execute('SELECT user_id , story_id FROM contributions'):
+        if contributor_id == i:
+            contributors.append(j)
+    db.commit()
+    db.close()
+    return contributors
 
 def create_story(author_id, title, body):
     """
