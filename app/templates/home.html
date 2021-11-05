@@ -19,14 +19,27 @@ P00 -- Move Slowly and Fix Things
     <h1>
       Asleep Alpacas, featuring: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
     </h1>
-    <h3>
-      Login here!
-    </h3>
-    <h1>
+    
+    {% if user = none %}
+     <h3>
+      Login
+     </h3>
+     <h1>
       <a id="loginpg" href = "/login">Login</a>
-    </h1>
-    <h3>
+     </h1>
+    {% else %}
+     <h3>
       View stories you've contributed to below
-      </h3>
+     </h3>
+     <h3>
+      Logout
+     </h3>
+     <h1>
+     ##idk where this is supposed to redirect to
+      <a id="logoutpg" href = "/logout">Logout</a>
+     </h1>
+    {% endif %}
+
+    
   </body>
 </html>
