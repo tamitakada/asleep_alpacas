@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template, session, request
+from flask import Flask, request, redirect, render_template, session
 import database
 
 app = Flask(__name__)
@@ -92,7 +92,9 @@ def create():
     if request.method == "POST":
         # Add story to database
         user_id = session["user_id"]
-        database.create_story(user_id, "[placeholder_title]", "[placeholder_body]")
+        title = request.form["Title"]
+        body = request.form["Text"]
+        database.create_story(user_id, title, body)
         return redirect("/")
     else:
         # Display create page
