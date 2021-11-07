@@ -30,10 +30,13 @@ P00 -- Move Slowly and Fix Things
       <a id="loginpg" href = "/login">Login</a>
      </h1>
     {% else %}
-     <h3>
+      {% if story is defined %}
+      <h3>
       View stories you've contributed to below
-     </h3>
-     <h3>
+        <p>{{story}}</p>
+      </h3>
+      {% endif %}
+      <h3>
       Logout
      </h3>
      <h1>

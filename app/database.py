@@ -153,7 +153,7 @@ def create_story(author_id, title, body):
     """
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute('''INSERT INTO stories(title,full_story) VALUES(?,?)''',(str(title),str(body)))
+    c.execute('''INSERT INTO stories(author_id,title,full_story) VALUES(?,?,?)''',(author_id,str(title),str(body)))
     db.commit()
     db.close()
     # TODO: implementation

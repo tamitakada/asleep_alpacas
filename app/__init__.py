@@ -10,7 +10,6 @@ def is_logged_in():
 def home():
     if is_logged_in():
         return render_template("home.html", user=session["user"])
-
     return render_template('home.html')
 
 @app.route("/logout")
@@ -88,13 +87,12 @@ def register():
 def create():
     if not is_logged_in():
         return "You must be logged in!"
-
     if request.method == "POST":
         # Add story to database
         user_id = session["user_id"]
         title = request.form["Title"]
         body = request.form["Text"]
-        database.create_story(user_id, title, body)
+        database.create_story(user_id[0], title, body)
         return redirect("/")
     else:
         # Display create page
