@@ -113,13 +113,13 @@ def story(story_id):
 
     user_id = session["user_id"]
 
-    if has_user_contributed(user_id, story_id):
+    if database.has_user_contributed(user_id, story_id):
         # Display full story
         return f"story with id of {story_id}"
     elif request.method == "POST":
         # Add to story
         # Display full story
-        append_to_story(user_id, story_id, "[placeholder_content]")
+        database.append_to_story(user_id, story_id, "[placeholder_content]")
         return f"story with id of {story_id}"
     else:
         # Display edit page
