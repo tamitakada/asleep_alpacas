@@ -76,3 +76,8 @@ Updated flask app to incorrporate more of the database functions (append and cre
 
 lieselW -- 2021-11-05 9:34
 attempted to add a button that returns to the login screen from the register page
+
+wenhaoD -- 2021-11-06 23:25
+Changed all placeholder pages in routes with the appropriate templates.
+Cleaned up a few of the templates.
+Fixed database.fetch_story_ids
