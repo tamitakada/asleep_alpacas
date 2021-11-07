@@ -116,9 +116,13 @@ def fetch_story(story_id):
     """
     Returns a dictionary containing the information of the story with the given id.
     """
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
     stories = {}
-    for i in c.execute("""SELECT full_story FROM stories WHERE story_id = ?""", (story_id)):
+    for i in c.execute("""SELECT id FROM stories"""):
         stories[story_id] = i
+    db.commit()
+    db.close()
     return stories
     # TODO: implementationusern open theame
 

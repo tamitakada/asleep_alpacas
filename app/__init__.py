@@ -6,10 +6,11 @@ app = Flask(__name__)
 def is_logged_in():
     return "user" in session
 
+
 @app.route("/")
 def home():
     if is_logged_in():
-        return render_template("home.html", user=session["user"])
+        return render_template("home.html", user=session["user"],story = database.fetch_story(1))
     return render_template('home.html')
 
 @app.route("/logout")
