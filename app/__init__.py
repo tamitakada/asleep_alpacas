@@ -9,7 +9,7 @@ def is_logged_in():
 @app.route("/")
 def home():
     if is_logged_in():
-        return f"home -- welcome, {session['user']}"
+        return render_template("home.html", user=session["user"])
 
     return render_template('home.html')
 
@@ -96,11 +96,11 @@ def create():
         return redirect("/")
     else:
         # Display create page
-        return "create"
+        return render_template("new.html")
 
 @app.route("/discover")
 def discover():
-    return "discover"
+    return render_template("discover.html")
 
 @app.route("/story/<story_id>", methods=["GET", "POST"])
 def story(story_id):
@@ -123,7 +123,7 @@ def story(story_id):
         return f"story with id of {story_id}"
     else:
         # Display edit page
-        return "edit"
+        return render_template("edit.html")
 
 if __name__ == "__main__":
     app.debug = True
