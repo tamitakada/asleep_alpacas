@@ -20,7 +20,9 @@ P00 -- Move Slowly and Fix Things
       Asleep Alpacas, featuring: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
     </h1>
     
-    {% if user = none %}
+    {# user is "not defined" if it isn't passed as a variable to render_template (see init's home function for an example) #}
+    {# also, this is how you make a comment with jinja #}
+    {% if user is not defined %}
      <h3>
       Login
      </h3>
@@ -35,7 +37,6 @@ P00 -- Move Slowly and Fix Things
       Logout
      </h3>
      <h1>
-     ##idk where this is supposed to redirect to
       <a id="logoutpg" href = "/logout">Logout</a>
      </h1>
     {% endif %}
