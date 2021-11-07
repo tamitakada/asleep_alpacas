@@ -84,3 +84,6 @@ wenhaoD -- 2021-11-06 23:25
 Changed all placeholder pages in routes with the appropriate templates.
 Cleaned up a few of the templates.
 Fixed database.fetch_story_ids
+
+justinZ -- 2021-11-07 13:44
+Fixed up a lot of the bugs found in database and made it so we can somewhat see the stories that the user has created
