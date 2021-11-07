@@ -131,9 +131,18 @@ def fetch_story_ids(contributor_id = None):
     contributors = []
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    for i,j in c.execute('SELECT user_id , story_id FROM contributions'):
-        if contributor_id == i:
-            contributors.append(j)
+
+    # The following uses a ternary statement -- learn more: https://www.geeksforgeeks.org/ternary-operator-in-python/
+    # Selects all story ids if no contributor id is given
+    # Otherwise, select all stories the given contributor has contributed to
+    story_id_iter = (
+        c.execute("SELECT id FROM stories") if contributor_id is None
+        else c.execute("SELECT story_id FROM contributions WHERE user_id = ?", contributor_id)
+    )
+
+    for id, in story_id_iter:
+        contributors.append(id)
+
     db.commit()
     db.close()
     return contributors
