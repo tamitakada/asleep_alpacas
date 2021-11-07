@@ -119,11 +119,11 @@ def fetch_story(story_id):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
     stories = {}
-    for i in c.execute("""SELECT id FROM stories"""):
+    for i in c.execute("""SELECT full_story FROM stories"""):
         stories[story_id] = i
     db.commit()
     db.close()
-    return stories
+    return "%s" % stories.get(story_id)
     # TODO: implementationusern open theame
 
 
