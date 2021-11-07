@@ -115,12 +115,12 @@ def story(story_id):
 
     if database.has_user_contributed(user_id, story_id):
         # Display full story
-        return f"story with id of {story_id}"
+        return render_template("view.html")
     elif request.method == "POST":
         # Add to story
         # Display full story
         database.append_to_story(user_id, story_id, "[placeholder_content]")
-        return f"story with id of {story_id}"
+        return render_template("view.html")
     else:
         # Display edit page
         return render_template("edit.html")
