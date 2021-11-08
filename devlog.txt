@@ -90,3 +90,6 @@ Fixed up a lot of the bugs found in database and made it so we can somewhat see 
 
 yoonahC -- 2021-11-07 19:12
 Created and added TFPG and added view.html. Worked on being able to view who contributed to the story last and which part of the story to see.
+
+yoonahC and lieselW -- 2021-11-08 09:27
+Edited edit.html, view.html
