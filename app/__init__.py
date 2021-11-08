@@ -27,17 +27,15 @@ def login():
     try: 
         if is_logged_in():
             return redirect("/")
+
         if request.method == 'GET':
-            # Check login
-            if "username" in request.args and "password" in request.args:
-                username = request.args["username"]
-                pas = request.args["password"]
+            return render_template('login.html')
+
         if request.method == "POST":
             # Check login
             if "username" in request.form and "password" in request.form:
                 username = request.form["username"]
                 pas = request.form["password"]
-        if username.strip() != "" and pas.strip != "":
             # verify this user and password exists
             user_id = database.fetch_user_id(username, pas)
             if user_id is not None:
@@ -45,11 +43,9 @@ def login():
                 session["user"] = username
                 session["user_id"] = user_id
                 return redirect("/")
-        # if it doesn't, return to home
+            # if it doesn't, return to home
             else:
                 return render_template('login.html', explain = "login information is wrong")
-        else:
-            return render_template('login.html', explain = "please enter characters and/or numbers")
     except:
         return render_template('login.html')
     
