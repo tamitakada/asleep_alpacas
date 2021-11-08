@@ -134,29 +134,52 @@ def fetch_story(story_id):
 
     return story
 
-def fetch_story_ids(contributor_id = None):
+def fetch_all_stories():
     """
-    If contributor_id is None, return a list of all stories' ids.
-    If a contributer_id is given, return a list of all of their contributions' ids.
+    Same as fetch_story but returns a list of all stories in the database rather than just one.
     """
-    contributors = []
     db = sqlite3.connect(DB_FILE)
+
+    # This just makes turns the rows into dictionary-like objects instead of the plain tuples
+    # I highly recommend reading more about it in the docs:
+    # https://docs.python.org/3/library/sqlite3.html#sqlite3.Connection.row_factory
+    db.row_factory = sqlite3.Row
     c = db.cursor()
 
-    # The following uses a ternary statement -- learn more: https://www.geeksforgeeks.org/ternary-operator-in-python/
-    # Selects all story ids if no contributor id is given
-    # Otherwise, select all stories the given contributor has contributed to
-    story_id_iter = (
-        c.execute("SELECT id FROM stories") if contributor_id is None
-        else c.execute("SELECT story_id FROM contributions WHERE user_id = ?", contributor_id)
-    )
-
-    for id, in story_id_iter:
-        contributors.append(id)
+    c.execute("SELECT * FROM stories")
+    stories = c.fetchall()
 
     db.commit()
     db.close()
-    return contributors
+
+    return stories
+
+def fetch_contributions(contributor_id):
+    """
+    Same as fetch_all_stories but only returns the stories the the contributor has contributed to.
+    """
+    db = sqlite3.connect(DB_FILE)
+
+    # This just makes turns the rows into dictionary-like objects instead of the plain tuples
+    # I highly recommend reading more about it in the docs:
+    # https://docs.python.org/3/library/sqlite3.html#sqlite3.Connection.row_factory
+    db.row_factory = sqlite3.Row
+    c = db.cursor()
+
+    # Selects the stories where the id is one of the contributions made by a user with the given id
+    c.execute("""
+        SELECT *
+        FROM stories
+        WHERE id in (SELECT story_id
+                     FROM contributions
+                     WHERE author_id = ?)
+    """, contributor_id)
+    stories = c.fetchall()
+
+    db.commit()
+    db.close()
+
+    return stories
 
 def create_story(author_id, title, body):
     """
