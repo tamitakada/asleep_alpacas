@@ -89,6 +89,20 @@ def register_user(username, password):
     return True
 
 
+def fetch_username(user_id):
+    """
+    Returns the username of the user with the given id.
+    """
+    db = sqlite3.connect(DB_FILE)
+    c = db.cursor()
+
+    c.execute("SELECT username FROM users WHERE id = ?", user_id)
+    username = c.fetchone()
+
+    db.close()
+    return username
+
+
 def has_user_contributed(user_id, story_id):
     """
     Returns whether or not the given user_id has contributed to the story_id.
