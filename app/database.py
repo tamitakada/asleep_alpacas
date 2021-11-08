@@ -198,8 +198,27 @@ def append_to_story(contributor_id, story_id, content):
     """
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("""INSERT INTO contributions(user_id,story_id) VALUES(?,?)""",(contributor_id,story_id))
-    c.execute("""INSERT INTO stories(last_update) VALUES(?)""",(content))
+
+    c.execute("""
+        SELECT full_story
+        FROM stories
+        WHERE id = ?
+    """, story_id)
+    full_story = c.fetchone()
+
+    if full_story is None:
+        c.close()
+        return
+
+    full_story += content
+    c.execute("""
+        UPDATE stories
+        SET full_story = ?
+          , last_update = ?
+        WHERE id = ?
+    """, full_story, content, story_id)
+
+    c.execute("INSERT INTO contributions(user_id,story_id) VALUES(?,?)",(contributor_id,story_id))
+
     db.commit()
     db.close()
-    # TODO: implementation
