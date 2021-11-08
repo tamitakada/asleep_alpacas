@@ -169,7 +169,7 @@ def fetch_contributions(contributor_id):
         FROM stories
         WHERE id in (SELECT story_id
                      FROM contributions
-                     WHERE author_id = ?)
+                     WHERE user_id = ?)
     """, contributor_id)
     stories = c.fetchall()
 
