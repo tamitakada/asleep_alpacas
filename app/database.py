@@ -183,10 +183,14 @@ def create_story(author_id, title, body):
     """
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    c.execute("""INSERT INTO stories(author_id,title,body) VALUES(?,?,?)""",(author_id,title,body))
+
+    c.execute("INSERT INTO stories(author_id,title,body) VALUES(?,?,?)",(author_id,title,body))
+
+    story_id = c.lastrowid
+    c.execute("INSERT INTO contributions(user_id,story_id) VALUES(?,?)",(author_id,story_id))
+
     db.commit()
     db.close()
-    # TODO: implementation
 
 def append_to_story(contributor_id, story_id, content):
     """
