@@ -108,7 +108,6 @@ def has_user_contributed(user_id, story_id):
 
     db.commit()
     db.close()
-
     return data is not None
 
 
@@ -118,12 +117,18 @@ def fetch_story(story_id):
     """
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    stories = {}
-    for i in c.execute("""SELECT full_story FROM stories"""):
-        stories[story_id] = i
+    c.execute("SELECT * FROM stories WHERE id = ?", story_id)
+    story_data = c.fetchone()
+    story = None
+    if story_data is not None:
+        story = {}
+        id, author_id, title, full_story, last_update = story_data
+        story["title"] = title
+        story["full_story"] = full_story
     db.commit()
     db.close()
-    return "%s" % stories.get(story_id)
+
+    return story
     # TODO: implementationusern open theame
 
 

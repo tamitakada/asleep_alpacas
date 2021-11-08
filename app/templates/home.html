@@ -19,7 +19,7 @@ P00 -- Move Slowly and Fix Things
     <h1>
       Asleep Alpacas, featuring: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
     </h1>
-    
+
     {# user is "not defined" if it isn't passed as a variable to render_template (see init's home function for an example) #}
     {# also, this is how you make a comment with jinja #}
     {% if user is not defined %}
@@ -30,12 +30,10 @@ P00 -- Move Slowly and Fix Things
       <a id="loginpg" href = "/login">Login</a>
      </h1>
     {% else %}
-      {% if story is defined %}
-      <h3>
-      View stories you've contributed to below
-        <p>{{story}}</p>
-      </h3>
-      {% endif %}
+      {% for story in stories %}
+          {{ story["title"] }}
+          {{ story["full_story"] }}
+      {% endfor %}
       <h3>
       Logout
      </h3>
@@ -44,6 +42,6 @@ P00 -- Move Slowly and Fix Things
      </h1>
     {% endif %}
 
-    
+
   </body>
 </html>

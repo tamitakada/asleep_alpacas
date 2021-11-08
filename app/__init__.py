@@ -10,7 +10,11 @@ def is_logged_in():
 @app.route("/")
 def home():
     if is_logged_in():
-        return render_template("home.html", user=session["user"],story = database.fetch_story(1))
+        ids = database.fetch_story_ids(session["user_id"])
+        stories = []
+        for id in ids:
+            stories.append(database.fetch_story_ids(id))
+        return render_template("home.html", user=session["user"],stories = stories)
     return render_template('home.html')
 
 @app.route("/logout")
@@ -24,18 +28,20 @@ def logout():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    try: 
+    try:
         if is_logged_in():
             return redirect("/")
-
         if request.method == 'GET':
-            return render_template('login.html')
-
+            # Check login
+            if "username" in request.args and "password" in request.args:
+                username = request.args["username"]
+                pas = request.args["password"]
         if request.method == "POST":
             # Check login
             if "username" in request.form and "password" in request.form:
                 username = request.form["username"]
                 pas = request.form["password"]
+        if username.strip() != "" and pas.strip != "":
             # verify this user and password exists
             user_id = database.fetch_user_id(username, pas)
             if user_id is not None:
@@ -43,12 +49,14 @@ def login():
                 session["user"] = username
                 session["user_id"] = user_id
                 return redirect("/")
-            # if it doesn't, return to home
+        # if it doesn't, return to home
             else:
                 return render_template('login.html', explain = "login information is wrong")
+        else:
+            return render_template('login.html', explain = "please enter characters and/or numbers")
     except:
         return render_template('login.html')
-    
+
     #except:
     #   return render_template('login.html', explain=
     # "seems like something went wrong! check your username and password combination! you may also make a new account")
