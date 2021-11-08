@@ -89,7 +89,6 @@ def register_user(username, password):
     return True
 
 
-
 def has_user_contributed(user_id, story_id):
     """
     Returns whether or not the given user_id has contributed to the story_id.
@@ -106,7 +105,6 @@ def has_user_contributed(user_id, story_id):
     """, (user_id, story_id))
     data = c.fetchone()
 
-    db.commit()
     db.close()
 
     return data is not None
@@ -149,7 +147,6 @@ def fetch_all_stories():
     c.execute("SELECT * FROM stories")
     stories = c.fetchall()
 
-    db.commit()
     db.close()
 
     return stories
@@ -176,7 +173,6 @@ def fetch_contributions(contributor_id):
     """, contributor_id)
     stories = c.fetchall()
 
-    db.commit()
     db.close()
 
     return stories
