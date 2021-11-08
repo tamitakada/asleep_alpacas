@@ -106,7 +106,6 @@ def has_user_contributed(user_id, story_id):
     data = c.fetchone()
 
     db.close()
-
     return data is not None
 
 

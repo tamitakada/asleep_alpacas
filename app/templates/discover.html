@@ -1,0 +1,28 @@
+<!--
+Asleep Alpacas: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
+SoftDev
+P00 -- Move Slowly and Fix Things
+2021-11-03
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    {% if len(stories) = 0 %}
+       <h1>
+       No one has created a story yet. Create your own below!
+       </h1>
+    {% else %}
+       {% for story in stories -%}
+         {{story}}
+       {%- endfor %}
+   <! -- show the stories from the database -->
+    {% endif %}
+   <h1>
+      <a id="newpg" href = "/create">New</a>
+    </h1>
+    <! -- ^^ this is a way to return to create page -->
+  </body>
+</html>

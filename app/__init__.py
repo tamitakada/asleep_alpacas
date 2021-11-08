@@ -6,11 +6,15 @@ app = Flask(__name__)
 def is_logged_in():
     return "user" in session
 
+
 @app.route("/")
 def home():
     if is_logged_in():
-        return render_template("home.html", user=session["user"])
-
+        ids = database.fetch_story_ids(session["user_id"])
+        stories = []
+        for id in ids:
+            stories.append(database.fetch_story_ids(id))
+        return render_template("home.html", user=session["user"],stories = stories)
     return render_template('home.html')
 
 @app.route("/logout")
@@ -24,7 +28,7 @@ def logout():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    try: 
+    try:
         if is_logged_in():
             return redirect("/")
         if request.method == 'GET':
@@ -37,20 +41,22 @@ def login():
             if "username" in request.form and "password" in request.form:
                 username = request.form["username"]
                 pas = request.form["password"]
-
-        # verify this user and password exists
-        user_id = database.fetch_user_id(username, pas)
-        if user_id is not None:
-            # Adds user and user id to session
-            session["user"] = username
-            session["user_id"] = user_id
-            return redirect("/")
+        if username.strip() != "" and pas.strip != "":
+            # verify this user and password exists
+            user_id = database.fetch_user_id(username, pas)
+            if user_id is not None:
+                # Adds user and user id to session
+                session["user"] = username
+                session["user_id"] = user_id
+                return redirect("/")
         # if it doesn't, return to home
+            else:
+                return render_template('login.html', explain = "login information is wrong")
         else:
-            return render_template('login.html', explain = "login information is wrong")
+            return render_template('login.html', explain = "please enter characters and/or numbers")
     except:
         return render_template('login.html')
-    
+
     #except:
     #   return render_template('login.html', explain=
     # "seems like something went wrong! check your username and password combination! you may also make a new account")
@@ -65,21 +71,35 @@ def register():
             # if request.args.get("login"):
             #    return render_template("login.html")
             # Check login
-            if database.register_user(request.args["newusername"], request.args["newpassword"]) == False:
-                return render_template('register.html', explain = "username already exists")
-            #if username doesn't exist, the account is created and sent to login page
+            user = ""
+            user = request.args["newusername"]
+            pwd = ""
+            pwd = request.args["newpassword"]
+            if user.strip() != "" and pwd.strip != "":
+                if database.register_user(user, pwd) == False:
+                    return render_template('register.html', explain = "username already exists")
+                #if username doesn't exist, the account is created and sent to login page
+                else:
+                    return render_template('login.html')
             else:
-                return render_template('login.html')
+                return render_template('register.html', explain = "please enter characters and/or numbers")
         if request.method == 'POST':
             #button to redirect to login page
             # if request.form.get("login"):
             #    return render_template("login.html")
             # Check login
-            if database.register_user(request.form["newusername"], request.form["newpassword"]) == False:
-                return render_template('register.html', explain = "username already exists or wrong values entered")
-            #if username doesn't exist, the account is created and sent to login page
+            user = ""
+            user = request.form["newusername"]
+            pwd = ""
+            pwd = request.form["newpassword"]
+            if user.strip() != "" or pwd.strip != "":
+                if database.register_user(user, pwd) == False:
+                    return render_template('register.html', explain = "username already exists")
+                #if username doesn't exist, the account is created and sent to login page
+                else:
+                    return render_template('login.html')
             else:
-                return render_template('login.html')
+                return render_template('register.html', explain = "please enter characters and/or numbers")
     #if not, stay on login page
     else:
         return render_template('register.html')
@@ -88,13 +108,12 @@ def register():
 def create():
     if not is_logged_in():
         return "You must be logged in!"
-
     if request.method == "POST":
         # Add story to database
         user_id = session["user_id"]
         title = request.form["Title"]
         body = request.form["Text"]
-        database.create_story(user_id, title, body)
+        database.create_story(user_id[0], title, body)
         return redirect("/")
     else:
         # Display create page

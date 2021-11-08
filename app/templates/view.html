@@ -1,0 +1,29 @@
+<!--
+Asleep Alpacas: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
+SoftDev
+P00 -- Move Slowly and Fix Things
+2021-11-03
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View</title>
+  </head>
+  <body>
+    <h1> Title:
+    {% block title %}
+      {{title}}
+    {% endblock %}
+    <b>Story: {{title}}</b><br>
+      {% for addon in story %}
+    </br>
+    <p>
+      {{ addon }}
+    </p>
+    <h1>
+      <a id="editpg" href = "/edit">Edit</a>
+    </h1>
+    {% endfor %}
+    {% endblock %}
+  </body>
+</html>
