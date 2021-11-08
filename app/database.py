@@ -115,13 +115,24 @@ def has_user_contributed(user_id, story_id):
 def fetch_story(story_id):
     """
     Returns a dictionary containing the information of the story with the given id.
+    NOTE: It actually returns a sqlite3.Row, which is a tuple dictionary hybrid.
+          For all intents and purposes though, it can be treated as a dictionary.
     """
-    stories = {}
-    for i in c.execute("""SELECT full_story FROM stories WHERE story_id = ?""", (story_id)):
-        stories[story_id] = i
-    return stories
-    # TODO: implementationusern open theame
+    db = sqlite3.connect(DB_FILE)
 
+    # This just makes turns the rows into dictionary-like objects instead of the plain tuples
+    # I highly recommend reading more about it in the docs:
+    # https://docs.python.org/3/library/sqlite3.html#sqlite3.Connection.row_factory
+    db.row_factory = sqlite3.Row
+    c = db.cursor()
+
+    c.execute("SELECT * FROM stories WHERE id = ?", (story_id))
+    story = c.fetchone()
+
+    db.commit()
+    db.close()
+
+    return story
 
 def fetch_story_ids(contributor_id = None):
     """
