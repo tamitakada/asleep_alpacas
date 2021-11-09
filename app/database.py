@@ -96,7 +96,7 @@ def fetch_username(user_id):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
-    c.execute("SELECT username FROM users WHERE id = ?", user_id)
+    c.execute("SELECT username FROM users WHERE id = ?", (user_id,))
     username = c.fetchone()
 
     db.close()
@@ -137,7 +137,7 @@ def fetch_story(story_id):
     db.row_factory = sqlite3.Row
     c = db.cursor()
 
-    c.execute("SELECT * FROM stories WHERE id = ?", (story_id))
+    c.execute("SELECT * FROM stories WHERE id = ?", (story_id,))
     story = c.fetchone()
 
     db.commit()
@@ -183,7 +183,7 @@ def fetch_contributions(contributor_id):
         WHERE id in (SELECT story_id
                      FROM contributions
                      WHERE user_id = ?)
-    """, contributor_id)
+    """, (contributor_id,))
     stories = c.fetchall()
 
     db.close()
