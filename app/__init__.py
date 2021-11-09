@@ -47,7 +47,7 @@ def login():
             if user_id is not None:
                 # Adds user and user id to session
                 session["user"] = username
-                session["user_id"] = user_id
+                session["user_id"] = str(user_id)
                 return redirect("/")
         # if it doesn't, return to home
             else:
@@ -123,7 +123,7 @@ def create():
 def discover():
     return render_template("discover.html", stories=database.fetch_all_stories())
 
-@app.route("/story/<int:story_id>", methods=["GET", "POST"])
+@app.route("/story/<story_id>", methods=["GET", "POST"])
 def story(story_id):
     """
     Using angle brackets in the route means it'll pass the value
