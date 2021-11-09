@@ -10,7 +10,8 @@ P00 -- Move Slowly and Fix Things
     <title>Home</title>
   </head>
   <body>
-    {% if len(stories) = 0 %}
+    {# https://stackoverflow.com/questions/1465249/get-lengths-of-a-list-in-a-jinja2-template #}
+    {% if stories|length == 0 %}
        <h1>
        No one has created a story yet. Create your own below!
        </h1>
