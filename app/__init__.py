@@ -104,10 +104,21 @@ def register():
     else:
         return render_template('register.html')
 
+#hardcoded version of edit right now, dont know where to get the story_id and the method used doesn't seem to be post
+# @app.route("/go", methods = ["GET", "POST"])
+# def edit():
+#     story = database.fetch_story(2)
+#     if request.method == "POST":
+#         body = request.form["Text"]
+#         database.append_to_story(session['user_id'],2,body)    
+#         return render_template("view.html",title=story["title"],author = "hi", body=story["full_story"],addon = body)
+#     else:
+#         return render_template("view.html",title=story["title"],author = "hi", body=story["full_story"],addon = "hi")
+
+
+
 @app.route("/create", methods=["GET", "POST"])
 def create():
-    if not is_logged_in():
-        return "You must be logged in!"
     if request.method == "POST":
         # Add story to database
         user_id = session["user_id"]
