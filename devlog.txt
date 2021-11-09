@@ -93,3 +93,10 @@ Created and added TFPG and added view.html. Worked on being able to view who con
 
 yoonahC and lieselW -- 2021-11-08 09:27
 Edited edit.html, view.html
+
+wenhaoD -- 2021-11-08 19:06
+Split fetch_story_ids into fetch_all_stories and fetch_contributions which returns a list
+of dictionaries instead of just the ids.
+Updated fetch_story to use row_factory (see comments in function for more detail).
+Updated flask app routes to use the new functions.
+Fixed minor issues.
