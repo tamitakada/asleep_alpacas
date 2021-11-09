@@ -72,7 +72,7 @@ yoonahC -- 2021-11-04 09:22
 Edited home page, login, and register pages. Added a redirect to login page in the register page. Edited home page to have a logout redirect and to display results of the conditional.
 
 justinZ -- 2021-11-05 9:24
-Finished up the database.py file, everything there should be done
+Finished up the database.py file, everything there should be done (this turned out to be very false)
 
 wenhaoD -- 2021-11-05 9:26
 Updated flask app to incorrporate more of the database functions (append and create).
