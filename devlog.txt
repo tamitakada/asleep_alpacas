@@ -100,3 +100,5 @@ of dictionaries instead of just the ids.
 Updated fetch_story to use row_factory (see comments in function for more detail).
 Updated flask app routes to use the new functions.
 Fixed minor issues.
+Created a macro for displaying a small box containing the story information and updated
+home and discover to use those macros.
