@@ -1,5 +1,4 @@
 from flask import Flask, request, redirect, render_template, session
-from app.database import fetch_story
 import database
 
 app = Flask(__name__)
