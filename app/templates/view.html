@@ -14,7 +14,7 @@ P00 -- Move Slowly and Fix Things
     {% block title %}
       {{title}}
     {% endblock %}
-    <b>Story: {{title}}</b><br>
+    <p>Story: {{body}}<br></p>
       {% for addon in story %}
     </br>
     <p>
@@ -24,5 +24,6 @@ P00 -- Move Slowly and Fix Things
       <a id="editpg" href = "/edit">Edit</a>
     </h1>
     {% endfor %}
+    <h2> <a href = "/">Home</a></h2>
   </body>
 </html>
