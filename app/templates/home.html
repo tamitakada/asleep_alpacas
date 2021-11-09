@@ -12,10 +12,10 @@ P00 -- Move Slowly and Fix Things
   <body>
     <h1>
       <a id="newpg" href = "/create">New</a>
-    </h1>
+    </h1> <! -- kinda like a hyperlink to new page -->
     <h1>
       <a id="discoverpg" href = "/discover">Discover</a>
-    </h1>
+    </h1> <! -- kinda like a hyperlink to discover page -->
     <h1>
       Asleep Alpacas, featuring: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
     </h1>
@@ -28,12 +28,12 @@ P00 -- Move Slowly and Fix Things
      </h3>
      <h1>
       <a id="loginpg" href = "/login">Login</a>
-     </h1>
+     </h1> <! -- kinda like a hyperlink to login page -->
     {% else %}
       {% import "macros.jinja" as macros %}
       {% for story in stories %}
       {{ macros.story(story.id, story.title, "[author]", story.last_update) }}
-      {% endfor %}
+      {% endfor %} <! --  showing stories user has already done -->
      <h1>
       <a id="logoutpg" href = "/logout">Logout</a>
      </h1>
