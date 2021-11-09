@@ -121,16 +121,19 @@ def register():
 
 @app.route("/create", methods=["GET", "POST"])
 def create():
-    if request.method == "POST":
-        # Add story to database
-        user_id = session["user_id"]
-        title = request.form["Title"]
-        body = request.form["Text"]
-        database.create_story(user_id, title, body)
-        return redirect("/")
+    if is_logged_in(): 
+        if request.method == "POST":
+            # Add story to database
+            user_id = session["user_id"]
+            title = request.form["Title"]
+            body = request.form["Text"]
+            database.create_story(user_id, title, body)
+            return redirect("/")
+        else:
+            # Display create page
+            return render_template("new.html")
     else:
-        # Display create page
-        return render_template("new.html")
+        return render_template("login.html", explain = "please login if you'd like to create a story")
 
 @app.route("/discover")
 def discover():
