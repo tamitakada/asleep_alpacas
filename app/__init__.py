@@ -155,7 +155,8 @@ def story(story_id):
     if request.method == "POST":
         # Add to story
         # Display full story
-        database.append_to_story(user_id, story_id, "[placeholder_content]")
+        new_content = request.form["Text"]
+        database.append_to_story(user_id, story_id, "\n"+new_content)
 
     story = database.fetch_story(story_id)
     if story is None:
