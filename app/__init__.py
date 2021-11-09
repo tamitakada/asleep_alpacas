@@ -124,6 +124,7 @@ def create():
     if is_logged_in(): 
         if request.method == "POST":
             # Add story to database
+            #user_id = session["user"]
             user_id = session["user_id"]
             title = request.form["Title"]
             body = request.form["Text"]
@@ -138,6 +139,7 @@ def create():
 @app.route("/discover")
 def discover():
     return render_template("discover.html", stories=database.fetch_all_stories())
+
 
 @app.route("/story/<story_id>", methods=["GET", "POST"])
 def story(story_id):
@@ -174,7 +176,8 @@ def story(story_id):
             "edit.html",
             title=story["title"],
             author=author,
-            last_update=story["last_update"]
+            last_update=story["last_update"],
+            story_id = story_id
         )
 
 if __name__ == "__main__":
