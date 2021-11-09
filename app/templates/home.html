@@ -30,9 +30,9 @@ P00 -- Move Slowly and Fix Things
       <a id="loginpg" href = "/login">Login</a>
      </h1>
     {% else %}
+      {% import "macros.jinja" as macros %}
       {% for story in stories %}
-          <h1><b>Title: {{ story["title"] }}</b></h1>
-          <p>Text: {{ story["full_story"] }}</p>
+      {{ macros.story(story.id, story.title, "[author]", story.last_update) }}
       {% endfor %}
      <h1>
       <a id="logoutpg" href = "/logout">Logout</a>

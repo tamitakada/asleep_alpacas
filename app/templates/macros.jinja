@@ -1,0 +1,13 @@
+{#
+  This is a file containing some useful macros.
+  Read about macros on the Jinja docs: https://jinja.palletsprojects.com/en/3.0.x/templates/#macros
+#}
+
+{# Displays a box containing the relevant story information #}
+{% macro story(id,title,author,last_update) %}
+  <article>
+    <a href="/story/{{ id }}">{{ title }}</a> by {{ author }}
+    <br>
+    <p>{{ last_update }}</p>
+  </article>
+{% endmacro %}
