@@ -114,7 +114,7 @@ def create():
         user_id = session["user_id"]
         title = request.form["Title"]
         body = request.form["Text"]
-        database.create_story(user_id[0], title, body)
+        database.create_story(user_id, title, body)
         return redirect("/")
     else:
         # Display create page
@@ -122,7 +122,7 @@ def create():
 
 @app.route("/discover")
 def discover():
-    return render_template("discover.html")
+    return render_template("discover.html", stories=database.fetch_all_stories())
 
 @app.route("/story/<int:story_id>", methods=["GET", "POST"])
 def story(story_id):
