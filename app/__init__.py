@@ -150,7 +150,7 @@ def story(story_id):
             "view.html",
             title=story["title"],
             author=author,
-            body=story["full_text"]
+            body=story["full_story"]
         )
     else:
         # Display edit page
