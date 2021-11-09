@@ -108,3 +108,6 @@ home and discover to use those macros.
 
 justinZ -- 2021-11-08 20:54
 Worked on editing and fixing up a bit of formatting
+
+yoonahC -- 2021-11-08 23:14
+Added comments and made minor changes to several pages to include titles.
