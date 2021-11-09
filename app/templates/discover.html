@@ -16,9 +16,10 @@ P00 -- Move Slowly and Fix Things
        No one has created a story yet. Create your own below!
        </h1>
     {% else %}
-       {% for story in stories -%}
-         {{story}}
-       {%- endfor %}
+      {% import "macros.jinja" as macros %}
+      {% for story in stories %}
+        {{ macros.story(story.id, story.title, "[author]", story.last_update) }}
+      {% endfor %}
    <! -- show the stories from the database -->
     {% endif %}
    <h1>
