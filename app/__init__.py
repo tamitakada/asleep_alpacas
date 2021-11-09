@@ -1,4 +1,5 @@
 from flask import Flask, request, redirect, render_template, session
+from app.database import fetch_story
 import database
 
 app = Flask(__name__)
@@ -10,11 +11,11 @@ def is_logged_in():
 @app.route("/")
 def home():
     if is_logged_in():
-        ids = database.fetch_story_ids(session["user_id"])
-        stories = []
-        for id in ids:
-            stories.append(database.fetch_story_ids(id))
-        return render_template("home.html", user=session["user"],stories = stories)
+        return render_template(
+            "home.html",
+            user=session["user"],
+            stories=database.fetch_contributions(session["user_id"])
+        )
     return render_template('home.html')
 
 @app.route("/logout")
@@ -123,7 +124,7 @@ def create():
 def discover():
     return render_template("discover.html")
 
-@app.route("/story/<story_id>", methods=["GET", "POST"])
+@app.route("/story/<int:story_id>", methods=["GET", "POST"])
 def story(story_id):
     """
     Using angle brackets in the route means it'll pass the value
@@ -134,17 +135,32 @@ def story(story_id):
 
     user_id = session["user_id"]
 
-    if database.has_user_contributed(user_id, story_id):
-        # Display full story
-        return render_template("view.html")
-    elif request.method == "POST":
+    if request.method == "POST":
         # Add to story
         # Display full story
         database.append_to_story(user_id, story_id, "[placeholder_content]")
-        return render_template("view.html")
+
+    story = database.fetch_story(story_id)
+    if story is None:
+        return redirect("/")
+
+    author = database.fetch_username(story["author_id"])
+    if database.has_user_contributed(user_id, story_id):
+        # Display full story
+        return render_template(
+            "view.html",
+            title=story["title"],
+            author=author,
+            body=story["full_text"]
+        )
     else:
         # Display edit page
-        return render_template("edit.html")
+        return render_template(
+            "edit.html",
+            title=story["title"],
+            author=author,
+            last_update=story["last_update"]
+        )
 
 if __name__ == "__main__":
     app.debug = True
