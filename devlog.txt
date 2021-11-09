@@ -92,7 +92,7 @@ yoonahC -- 2021-11-07 19:12
 Created and added TFPG and added view.html. Worked on being able to view who contributed to the story last and which part of the story to see.
 
 yoonahC and lieselW -- 2021-11-08 09:27
-Edited edit.html, view.html
+Edited edit.html, view.html to add conditionals and for loops
 
 justinZ -- 2021-11-08 09:27
 Worked on allowing the stories to be seen on homepage
