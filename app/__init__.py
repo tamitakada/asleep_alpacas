@@ -176,8 +176,7 @@ def story(story_id):
             "edit.html",
             title=story["title"],
             author=author,
-            last_update=story["last_update"],
-            story_id = story_id
+            last_update=story["last_update"]
         )
 
 if __name__ == "__main__":

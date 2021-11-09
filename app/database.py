@@ -223,7 +223,7 @@ def append_to_story(contributor_id, story_id, content):
         FROM stories
         WHERE id = ?
     """, story_id)
-    full_story = c.fetchone()
+    full_story, = c.fetchone()
 
     if full_story is None:
         c.close()
@@ -235,7 +235,7 @@ def append_to_story(contributor_id, story_id, content):
         SET full_story = ?
           , last_update = ?
         WHERE id = ?
-    """, full_story, content, story_id)
+    """, (full_story, content, story_id))
 
     c.execute("INSERT INTO contributions(user_id,story_id) VALUES(?,?)",(contributor_id,story_id))
 
