@@ -110,7 +110,7 @@ Created a macro for displaying a small box containing the story information and 
 home and discover to use those macros.
 
 justinZ -- 2021-11-08 20:54
-Worked on editing and fixing up a bit of formatting
+Worked on editing page and fixing up a bit of formatting
 
 yoonahC -- 2021-11-08 23:14
 Added comments and made minor changes to several pages to include titles.
@@ -132,3 +132,7 @@ yoonahC -- 2021-11-10 09:06
 Updated launch codes since old one made the user cd into the wrong working directory, updated requirements.txt to include more modules, 
 also tested function and website to make sure everything works
 Updated templates files to include heading with project name
+
+justinZ -- 2021-11-10 09:48
+Worked on Delegating tasks and getting clearance for macros
+Worked on what the home page looks like when not logged in
