@@ -131,3 +131,4 @@ Tested the function and website and made sure everything works
 yoonahC -- 2021-11-10 09:06
 Updated launch codes since old one made the user cd into the wrong working directory, updated requirements.txt to include more modules, 
 also tested function and website to make sure everything works
+Updated templates files to include heading with project name
