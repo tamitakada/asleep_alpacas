@@ -146,7 +146,9 @@ def story(story_id):
             user=session["user"],
             title=story["title"],
             author=author,
-            body=story["full_story"]
+            body=story["full_story"],
+            explain = "You can no longer contribute to the story now"
+            
         )
     else:
         # Display edit page

@@ -6,4 +6,7 @@
     <h1> {{ title }} </h1>
     <h2> by {{ author }} </h2>
     <p> {{ body }} </p>
+    {% if explain is defined %}
+    <p style="color:rgb(255, 0, 0);">{{ explain }}</p>
+    {% endif %}
 {% endblock %}
