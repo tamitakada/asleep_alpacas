@@ -30,82 +30,72 @@ def logout():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    try:
-        if is_logged_in():
-            return redirect("/")
+    if is_logged_in():
+        return redirect("/")
 
-        if request.method == 'GET':
-            # Check login
-            if "username" in request.args and "password" in request.args:
-                username = request.args["username"]
-                pas = request.args["password"]
+    # Default page
+    if request.method == 'GET':
+        return render_template("login.html")
 
-        if request.method == "POST":
-            # Check login
-            if "username" in request.form and "password" in request.form:
-                username = request.form["username"]
-                pas = request.form["password"]
+    # Check login
+    username = request.form["username"]
+    pas = request.form["password"]
 
-        if username.strip() != "" and pas.strip != "":
-            # verify this user and password exists
-            user_id = database.fetch_user_id(username, pas)
-            if user_id is not None:
-                # Adds user and user id to session
-                session["user"] = username
-                session["user_id"] = user_id
-                return redirect("/")
-            else:
-                return render_template('login.html', explain="login information is wrong")
-        else:
-            return render_template('login.html', explain="please enter characters and/or numbers")
-    except:
-        return render_template('login.html')
+    if username.strip() == "" or pas.strip == "":
+        return render_template('login.html', explain="please enter characters and/or numbers")
+    
+    # verify this user and password exists
+    user_id = database.fetch_user_id(username, pas)
+    if user_id is None:
+        return render_template('login.html', explain="login information is wrong")
+
+    # Adds user and user id to session
+    session["user"] = username
+    session["user_id"] = user_id
+    return redirect("/")
 
     #except:
     #   return render_template('login.html', explain=
     # "seems like something went wrong! check your username and password combination! you may also make a new account")
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if is_logged_in():
         return redirect("/")
 
-    if "newusername" in request.form and "newpassword" in request.form:
-        if request.method == 'POST':
-            #button to redirect to login page
-            # if request.form.get("login"):
-            #    return render_template("login.html")
-            # Check login
-            user = ""
-            user = request.form["newusername"]
-            pwd = ""
-            pwd = request.form["newpassword"]
-            if user.strip() != "" or pwd.strip != "":
-                if database.register_user(user, pwd) == False:
-                    return render_template('register.html', explain="username already exists")
-                #if username doesn't exist, the account is created and sent to login page
-                else:
-                    return redirect("/login")
-            else:
-                return render_template('register.html', explain="please enter characters and/or numbers")
+    # Default page
+    if request.method == "GET":
+        return render_template('register.html')
 
-    return render_template('register.html')
+    # Check login
+    user = request.form["newusername"]
+    pwd = request.form["newpassword"]
+    if user.strip() == "" or pwd.strip == "":
+        return render_template('register.html', explain="please enter characters and/or numbers")
+    
+    register_success = database.register_user(user, pwd)
+    if not register_success:
+        return render_template('register.html', explain="username already exists")
+
+    return redirect("/login")
+
 
 @app.route("/create", methods=["GET", "POST"])
 def create():
     if is_logged_in(): 
-        if request.method == "POST":
-            # Add story to database
-            #user_id = session["user"]
-            user_id = session["user_id"]
-            title = request.form["Title"]
-            body = request.form["Text"]
-            database.create_story(user_id, title, body)
-            return redirect("/")
-        else:
-            return render_template("new.html", user=session["user"])
-    else:
         return redirect("/login")
+
+    # Default page
+    if request.method == "GET":
+        return render_template("new.html", user=session["user"])
+
+    # Add story to database
+    user_id = session["user_id"]
+    title = request.form["Title"]
+    body = request.form["Text"]
+    database.create_story(user_id, title, body)
+    return redirect("/")
 
 
 @app.route("/discover")
