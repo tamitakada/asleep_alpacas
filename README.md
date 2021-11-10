@@ -1,4 +1,4 @@
-# P0 Name by Asleep Alpacas
+# StoryAlpaca by Asleep Alpacas
 
 * Justin Zou (Project Manager)
   * SQLite Database
