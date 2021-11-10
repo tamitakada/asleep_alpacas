@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+}
+
+/* ==============================================
+   Navbar
+   ============================================== */
+nav {
+  padding: 1.2rem 2rem;
+  background-color: rgb(30, 30, 30);
+
+  font-size: 1.4rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+/**
+ * Navbar sub sections are also flex containers
+ * There's a left and right subsection, one containing the main pages,
+ * the other containing login/logout/signup links
+ */
+nav > div {
+  display: flex;
+  gap: 1.2rem;
+}
+
+/* Navbar links
+   ============================================== */
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================================
+   Footer
+   ============================================== */
+footer {
+  padding: 0.8rem;
+  text-align: center;
+  background-color: white;
+
+  position: fixed;
+  bottom: 0;
+
+  width: 100vw;
+}

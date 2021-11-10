@@ -9,18 +9,23 @@ P00 -- Move Slowly and Fix Things
 <html>
   <head>
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
     <nav>
-      <a id="home" href="/">Home</a>
-      <a id="create" href="/create">New</a>
-      <a id="discover" href="/discover">Discover</a>
-      {% if user is defined and user is not none %}
-        <a id="logout" href="/logout">Logout</a>
-      {% else %}
-        <a id="login" href="/login">Login</a>
-        <a id="signup" href="/register">Signup</a>
-      {% endif %}
+      <div>
+        <a id="home" href="/">Home</a>
+        <a id="create" href="/create">New</a>
+        <a id="discover" href="/discover">Discover</a>
+      </div>
+      <div>
+        {% if user is defined and user is not none %}
+          <a id="logout"href="/logout">Logout</a>
+        {% else %}
+          <a id="login" href="/login">Login</a>
+          <a id="signup" href="/register">Signup</a>
+        {% endif %}
+      </div>
     </nav>
 
     {% block body %}{% endblock %}
