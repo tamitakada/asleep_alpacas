@@ -7,9 +7,9 @@
 {% macro story_list(stories) %}
   {% for story in stories %}
     <article>
-      <a href="/story/{{ story.id }}">{{ story.title }}</a> by {{ story.author }}
+      <a href="/story/{{ story.id }}">{{ story.title|e }}</a> by {{ story.author|e }}
       <br>
-      <p>{{ story.last_update }}</p>
+      <p>{{ story.last_update|e }}</p>
     </article>
   {% endfor %}
 {% endmacro %}
