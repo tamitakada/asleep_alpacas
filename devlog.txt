@@ -135,4 +135,4 @@ Updated templates files to include heading with project name
 
 justinZ -- 2021-11-10 09:48
 Worked on Delegating tasks and getting clearance for macros
-Worked on what the home page looks like when not logged in
+Worked on what the home page looks like when not logged in, and fixed up the bug with view
