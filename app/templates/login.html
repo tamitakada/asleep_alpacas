@@ -1,44 +1,31 @@
-<!--
-Asleep Alpacas: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
-SoftDev
-P00 - Move Slowly and Fix Things
-2021-11-03
--->
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Login</title>
-  </head>
-  <body>
-    <h3>
-      Enter your username and password:
-    </h3>
-    {# The pattern /\S+/ is regex for "no whitespace characters" #}
-    <p>
-      Username and Password mustn't contain whitespace!
-    </p>
-    <form method="post" action="/login">
-      <input
-        placeholder="username"
-        name="username"
-        required
-        pattern="\S+"
-        minlength="1"
-      ></input>
-      <input
-        placeholder="password"
-        name="password"
-        type="password" 
-        required
-        pattern="\S+"
-        minlength="1"
-      ></input>
-      <input type="submit" value="Login"></input>
-    </form>
+{% extends "layout.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+  <form method="post">
+    <p> Enter your username and password </p>
+    <!-- The pattern /\S+/ is regex for "no whitespace characters" -->
+    <input
+      placeholder="Username"
+      name="username"
+      required
+      pattern="\S+"
+      minlength="1"
+    />
+    <br />
+    <input
+      placeholder="Password"
+      name="password"
+      type="password" 
+      required
+      pattern="\S+"
+      minlength="1"
+    />
+    <br />
+    <input type="submit" value="Login" />
+    <br />
     <p style="color:red;">{{ explain }}</p>
-    <h3>
-      Don't have an account? Create one!
-    </h3>
-    <a id="createacct" href = "/register">Create Account</a>
-  </body>
-</html>
+  </form>
+  <a id="register" href = "/register">Sign Up</a>
+{% endblock %}

@@ -1,0 +1,34 @@
+{# This is the base template for the pages. #}
+<!--
+Asleep Alpacas: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
+SoftDev
+P00 -- Move Slowly and Fix Things
+2021-11-03
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <nav>
+      <a id="home" href="/">Home</a>
+      <a id="create" href="/create">New</a>
+      <a id="discover" href="/discover">Discover</a>
+      {% if user is defined and user is not none %}
+        <a id="logout" href="/logout">Logout</a>
+      {% else %}
+        <a id="login" href="/login">Login</a>
+        <a id="signup" href="/register">Signup</a>
+      {% endif %}
+    </nav>
+
+    {% block body %}{% endblock %}
+
+    <footer>
+      &copy; 2021 Asleep Alpacas
+      <br />
+      Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
+    </footer>
+  </body>
+</html>

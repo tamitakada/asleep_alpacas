@@ -1,27 +1,9 @@
-<!--
-Asleep Alpacas: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
-SoftDev
-P00 -- Move Slowly and Fix Things
-2021-11-03
--->
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>View</title>
-  </head>
-  <body> <! -- show latest version that is what the user should've seen in the discover page right before this -->
-    <h1> Title:
-    {% block title %}
-      {{title}}
-    {% endblock %}
-    <p>Story: {{body}} {{addon}}<br></p>
-    </br>
-    <p>
-    </p>
-    <h1>
-      <!--<a id="editpg" href = "/edit">Edit</a>-->
-    </h1> 
-    <h2> <a href = "/">Home</a></h2>
+{% extends "layout.html" %}
 
-  </body>
-</html>
+{% block title %} View {% endblock %}
+
+{% block body %}
+    <h1> {{ title }} </h1>
+    <h2> by {{ author }} </h2>
+    <p> {{ body }} </p>
+{% endblock %}

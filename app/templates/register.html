@@ -1,25 +1,17 @@
-<!-- 
-Asleep Alpacas: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
-SoftDev 
-P00 -- Move Slowly and Fix Things
-2021-11-03
--->
-<!DOCTYPE html>
-<html>
-    <head>
-    <title>Register</title>
-   </head>
-    <h1>
-    Sign up here!
-    </h1>
+{% extends "layout.html" %}
+
+{% block title %} Register {% endblock %}
+
+{% block body %}
     <form method="post" action="/register">
-      Enter a Username <input type="text" name="newusername">
-      <br>
-      </br>
-      Enter a Password <input type="password" name = "newpassword">
-      <br></br>
-      <input type="submit" name="sub" value = "Let's Go!">
+      <p> Sign up here! </p>
+      <input type="text" name="newusername" placeholder="Username">
+      <br />
+      <input type="password" name="newpassword" placeholder="Password">
+      <br />
+      <input type="submit" name="sub" value="Sign Up">
+      <br />
+      <p style="color:red;">{{ explain }}</p>
     </form>
-    <!--<input type="submit" name="login" value = "Already have an account? Login"> -->
-     <p style="color:red;">{{ explain }}</p>
-</html>
+    <a id="login" href="/login">Log In</a>
+{% endblock %}

@@ -1,30 +1,28 @@
-<!--
-Asleep Alpacas: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
-SoftDev
-P00 -- Move Slowly and Fix Things
-2021-11-03
--->
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Discover</title>
-  </head>
-  <body>
-    {# https://stackoverflow.com/questions/1465249/get-lengths-of-a-list-in-a-jinja2-template #}
-    {% if stories|length == 0 %}
-       <h1>
-       No one has created a story yet. Create your own below!
-       </h1>
-    {% else %}
-      {% import "macros.jinja" as macros %}
-      {% for story in stories %}
-        {{ macros.story(story.id, story.title, "[author]", story.last_update) }}
-      {% endfor %}
-   <! -- show the stories from the database -->
-    {% endif %}
-   <h1>
-      <a id="newpg" href = "/create">New</a>
-    </h1>
-    <! -- ^^ this is a way to return to create page -->
-  </body>
-</html>
+{% extends "layout.html" %}
+
+{% block title %} Discover {% endblock %}
+
+{% block body %}
+  {# https://stackoverflow.com/questions/1465249/get-lengths-of-a-list-in-a-jinja2-template #}
+  {% if stories|length == 0 %}
+    <p>
+      No one has created a story yet...
+    </p>
+  {% else %}
+    {# show the stories from the database #}
+    {% import "macros.jinja" as macros %}
+    {% for story in stories %}
+      {{ macros.story(story.id, story.title, "[author]", story.last_update) }}
+    {% endfor %}
+  {% endif %}
+
+  <form action="/create" method="get">
+    <input
+      type="submit"
+      value="Add a New Story!" 
+      name="Submit"
+      id="submit"
+    />
+  </form>
+  <! -- ^^ this is a way to return to create page -->
+{% endblock %}
