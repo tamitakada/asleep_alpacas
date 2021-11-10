@@ -123,3 +123,7 @@ Updated all templates to extends a base layout template with a nav bar and foote
 Fixed fetch_user_id and fetch_username functions to not return a tuple.
 Updated edit template to include title, author, and last update.
 Created css for navbar and footer.
+
+justinZ -- 2021-11-09 21:33
+Worked on some quality of life changes for the user
+Tested the function and website and made sure everything works
