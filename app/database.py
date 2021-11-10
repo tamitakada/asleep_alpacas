@@ -66,7 +66,7 @@ def fetch_user_id(username, password):
     """, (username, password))
 
     # user_id is None if no matches were found
-    user_id = c.fetchone()
+    user_id, = c.fetchone()
 
     db.close()
 
@@ -97,7 +97,7 @@ def fetch_username(user_id):
     c = db.cursor()
 
     c.execute("SELECT username FROM users WHERE id = ?", (user_id,))
-    username = c.fetchone()
+    username, = c.fetchone()
 
     db.close()
     return username
