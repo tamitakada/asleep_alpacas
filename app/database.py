@@ -56,6 +56,11 @@ def fetch_user_id(username, password):
     Returns None if the combination is incorrect.
     """
     db = sqlite3.connect(DB_FILE)
+
+    # The following line turns the tuple into a single value (sqlite3 commands always return a tuple, even when it is one value)
+    # You can read more about row_factory in the official docs:
+    # https://docs.python.org/3/library/sqlite3.html#sqlite3.Connection.row_factory
+    db.row_factory = lambda curr, row: row[0]
     c = db.cursor()
 
     c.execute("""
@@ -66,7 +71,7 @@ def fetch_user_id(username, password):
     """, (username, password))
 
     # user_id is None if no matches were found
-    user_id, = c.fetchone()
+    user_id = c.fetchone()
 
     db.close()
 
@@ -94,10 +99,11 @@ def fetch_username(user_id):
     Returns the username of the user with the given id.
     """
     db = sqlite3.connect(DB_FILE)
+    db.row_factory = lambda curr, row: row[0]
     c = db.cursor()
 
     c.execute("SELECT username FROM users WHERE id = ?", (user_id,))
-    username, = c.fetchone()
+    username = c.fetchone()
 
     db.close()
     return username
