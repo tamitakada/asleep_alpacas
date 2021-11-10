@@ -8,9 +8,11 @@ P00 -- StoryAlpaca
 {% extends "layout.html" %}
 
 {% block title %} Home {% endblock %}
-
 {% block body %}
-  {% if stories is defined %}
+  {% if user is not defined %}
+    <h1>Please Log in</h1>
+  {% endif %} 
+  {% if stories is defined and stories is not none %}
     {# showing stories user has already done #}
     {% import "macros.jinja" as macros %}
     <h1>Your Stories Below:</h1>
