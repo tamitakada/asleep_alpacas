@@ -83,7 +83,7 @@ def register():
 
 @app.route("/create", methods=["GET", "POST"])
 def create():
-    if is_logged_in(): 
+    if not is_logged_in(): 
         return redirect("/login")
 
     # Default page
