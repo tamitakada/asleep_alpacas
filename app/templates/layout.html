@@ -20,16 +20,16 @@ P00 -- Move Slowly and Fix Things
       </div>
       <div>
         {% if user is defined and user is not none %}
+          <a id = "user">Hello there User: {{user}}</a>
           <a id="logout"href="/logout">Logout</a>
         {% else %}
           <a id="login" href="/login">Login</a>
           <a id="signup" href="/register">Signup</a>
         {% endif %}
-      </div>
+      </div>   
     </nav>
-
-    {% block body %}{% endblock %}
-
+      
+      {% block body %}{% endblock %}
     <footer>
       &copy; 2021 Asleep Alpacas
       <br />

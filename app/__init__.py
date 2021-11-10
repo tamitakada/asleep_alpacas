@@ -91,20 +91,6 @@ def register():
 
     return render_template('register.html')
 
-#hardcoded version of edit right now, dont know where to get the story_id and the method used doesn't seem to be post
-# @app.route("/go", methods = ["GET", "POST"])
-# def edit(story_id):
-#     if database.has_user_contributed(session['user_id'],story_id):
-#         return "sorry you can only contribute once"
-#     story = database.fetch_story(story_id)
-#     if request.method == "POST":
-#         body = request.form["Text"]
-#         database.append_to_story(session['user_id'],story_id,body)    
-#         return render_template("view.html",title=story["title"],author = "hi", body=story["full_story"],addon = body)
-#     else:
-#         return render_template("view.html",title=story["title"],author = "hi", body=story["full_story"],addon = "hi")
-
-
 @app.route("/create", methods=["GET", "POST"])
 def create():
     if is_logged_in(): 
@@ -117,7 +103,6 @@ def create():
             database.create_story(user_id, title, body)
             return redirect("/")
         else:
-            # Display create page
             return render_template("new.html", user=session["user"])
     else:
         return redirect("/login")
