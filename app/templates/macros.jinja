@@ -4,10 +4,12 @@
 #}
 
 {# Displays a box containing the relevant story information #}
-{% macro story(id,title,author,last_update) %}
-  <article>
-    <a href="/story/{{ id }}">{{ title }}</a> by {{ author }}
-    <br>
-    <p>{{ last_update }}</p>
-  </article>
+{% macro story_list(stories) %}
+  {% for story in stories %}
+    <article>
+      <a href="/story/{{ story.id }}">{{ story.title }}</a> by {{ story.author }}
+      <br>
+      <p>{{ story.last_update }}</p>
+    </article>
+  {% endfor %}
 {% endmacro %}

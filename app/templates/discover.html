@@ -11,9 +11,7 @@
   {% else %}
     {# show the stories from the database #}
     {% import "macros.jinja" as macros %}
-    {% for story in stories %}
-      {{ macros.story(story.id, story.title, "[author]", story.last_update) }}
-    {% endfor %}
+    {{ macros.story_list(stories) }}
   {% endif %}
 
   <form action="/create" method="get">
@@ -24,5 +22,5 @@
       id="submit"
     />
   </form>
-  <! -- ^^ this is a way to return to create page -->
+  <!-- ^^ this is a way to return to create page -->
 {% endblock %}

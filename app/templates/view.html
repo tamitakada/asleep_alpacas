@@ -3,9 +3,9 @@
 {% block title %} View {% endblock %}
 
 {% block body %}
-    <h1> {{ title }} </h1>
-    <h2> by {{ author }} </h2>
-    <p> {{ body }} </p>
+    <h1> {{ story.title }} </h1>
+    <h2> by {{ story.author }} </h2>
+    <p> {{ story.body }} </p>
     {% if explain is defined %}
     <p style="color:rgb(255, 0, 0);">{{ explain }}</p>
     {% endif %}

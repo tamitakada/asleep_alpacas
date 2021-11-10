@@ -137,7 +137,18 @@ def fetch_story(story_id):
     db.row_factory = sqlite3.Row
     c = db.cursor()
 
-    c.execute("SELECT * FROM stories WHERE id = ?", (story_id,))
+    c.execute("""
+        SELECT story.id
+             , story.title
+             , story.full_story
+             , story.last_update
+             , user.username as author
+             , user.id as author_id
+        FROM   stories as story
+        INNER  JOIN users as user
+                 ON story.id = ?
+                AND user.id = story.author_id
+    """, (story_id,))
     story = c.fetchone()
 
     db.commit()
@@ -157,7 +168,17 @@ def fetch_all_stories():
     db.row_factory = sqlite3.Row
     c = db.cursor()
 
-    c.execute("SELECT * FROM stories")
+    c.execute("""
+        SELECT story.id
+             , story.title
+             , story.full_story
+             , story.last_update
+             , user.username as author
+             , user.id as author_id
+        FROM   stories as story
+        INNER  JOIN users as user
+                 ON user.id = story.author_id
+    """)
     stories = c.fetchall()
 
     db.close()
@@ -178,11 +199,18 @@ def fetch_contributions(contributor_id):
 
     # Selects the stories where the id is one of the contributions made by a user with the given id
     c.execute("""
-        SELECT *
-        FROM stories
-        WHERE id in (SELECT story_id
-                     FROM contributions
-                     WHERE user_id = ?)
+        SELECT story.id
+             , story.title
+             , story.full_story
+             , story.last_update
+             , author.username as author
+             , author.id as author_id
+        FROM   stories as story
+        INNER  JOIN contributions as contribution
+                 ON contribution.story_id = story.id
+                AND contribution.user_id = ?
+        INNER  JOIN users as author
+                 ON author.id = story.author_id
     """, (contributor_id,))
     stories = c.fetchall()
 

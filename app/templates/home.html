@@ -7,8 +7,6 @@
     {# showing stories user has already done #}
     {% import "macros.jinja" as macros %}
     <h1>Your Stories Below:</h1>
-    {% for story in stories %}
-    {{ macros.story(story.id, story.title, "[author]", story.last_update) }}
-    {% endfor %}
+    {{ macros.story_list(stories) }}
   {% endif %}
 {% endblock %}

@@ -144,20 +144,15 @@ def story(story_id):
         return render_template(
             "view.html",
             user=session["user"],
-            title=story["title"],
-            author=author,
-            body=story["full_story"],
+            story=story,
             explain = "You can no longer contribute to the story now"
-            
         )
     else:
         # Display edit page
         return render_template(
             "edit.html",
             user=session["user"],
-            title=story["title"],
-            author=author,
-            last_update=story["last_update"]
+            story=story
         )
 
 if __name__ == "__main__":

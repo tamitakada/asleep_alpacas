@@ -4,9 +4,9 @@
 
 {% block body %}
   <form method="post">
-    <h1> {{ title }} </h1>
-    <h2> by {{ author }} </h2>
-    <p> Last Update: {{ last_update }} </p>
+    <h1> {{ story.title }} </h1>
+    <h2> by {{ story.author }} </h2>
+    <p> Last Update: {{ story.last_update }} </p>
     <textarea id="text" name="Text" rows="20" cols="94" placeholder="Continue the story..."></textarea>
     <br>
     <input type="submit" value="Add!" />
