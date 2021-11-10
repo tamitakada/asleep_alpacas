@@ -114,3 +114,8 @@ Worked on editing and fixing up a bit of formatting
 
 yoonahC -- 2021-11-08 23:14
 Added comments and made minor changes to several pages to include titles.
+
+wenhaoD -- 2021-11-09 20:04
+Updated all templates to extends a base layout template with a nav bar and footer.
+Fixed fetch_user_id and fetch_username functions to not return a tuple.
+Updated edit template to include title, author, and last update.
