@@ -133,6 +133,10 @@ Updated launch codes since old one made the user cd into the wrong working direc
 also tested function and website to make sure everything works
 Updated templates files to include heading with project name
 
+wenhaoD -- 2021-11-10 9:20
+Updated fetch_story, fetch_all_stories, and fetch_contributions to also get the author name.
+Updated templates to use the story dictionary's new author value.
+
 justinZ -- 2021-11-10 09:48
 Worked on Delegating tasks and getting clearance for macros
 Worked on what the home page looks like when not logged in, and fixed up the bug with view
