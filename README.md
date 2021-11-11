@@ -21,7 +21,7 @@ However be careful since you can only edit a story once and you can only see the
 
 1. Clone Asleep Alpacas' repository: `git clone https://github.com/zou-Justin/asleep_alpacas.git`
 2. Cd into the working directory: `cd asleep_alpacas`
-3. Activate virtual environment: `source venv/bin/activate` or `source venv/Scripts/activate`for Windows
+3. Activate virtual environment: `source venv/bin/activate` or `source venv/Scripts/activate` for Windows
      - If virtual environment is not already created:
         - Install virtualenv module: `pip install virtualenv`
         - Create the virtual environment: `python3 -m virtualenv venv`
