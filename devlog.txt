@@ -151,7 +151,10 @@ justinZ -- 2021-11-10 20:30
 Added a description of our website to the read me.
 Made sure that we had all of the requirements fullfilled
 
-wenhaoD --2021-11-11 11:44
+wenhaoD -- 2021-11-11 11:44
 Added css for all pages.
 Fixed problem with creating stories with titles containing only whitespace -- they now default to
 having a title of "Untitled Story".
+
+yoonahC -- 2021-11-11 11:54
+Updated README.md launch codes part
