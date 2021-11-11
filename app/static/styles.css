@@ -83,6 +83,8 @@ article {
   flex-direction: column;
   gap: 4px;
 
+  border-radius: 12px;
+
   transition-duration: 0.2s;
 }
 
