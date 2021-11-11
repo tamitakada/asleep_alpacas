@@ -6,7 +6,7 @@
 {# Displays a box containing the relevant story information #}
 {% macro story_list(stories) %}
   {% for story in stories %}
-    <article>
+    <article class="shadow">
       <a href="/story/{{ story.id }}">
         <h2>{{ story.title|e }}</h2>
       </a>

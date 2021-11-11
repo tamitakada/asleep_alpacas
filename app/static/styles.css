@@ -15,6 +15,18 @@ main {
 }
 
 /* ==============================================
+   Link tags
+   ============================================== */
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================================
    Navbar
    ============================================== */
 nav {
@@ -37,19 +49,8 @@ nav > div {
   gap: 1.2rem;
 }
 
-/* Navbar links
-   ============================================== */
-nav a {
+nav * {
   color: white;
-  text-decoration: none;
-}
-
-nav p {
-  color: white;
-}
-
-nav a:hover {
-  text-decoration: underline;
 }
 
 /* ==============================================
@@ -74,19 +75,15 @@ article {
   display: flex;
   flex-direction: column;
   gap: 4px;
-
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-article a {
-  color: black;
-  text-decoration: none;
-}
-
-article a:hover {
-  text-decoration: underline;
-}
-
-article :is(h2, h3, p) {
+article * {
   margin: 0;
+}
+
+/* ==============================================
+   Utility classes
+   ============================================== */
+.shadow {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
