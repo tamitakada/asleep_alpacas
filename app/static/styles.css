@@ -122,6 +122,27 @@ article * {
 }
 
 /* ==============================================
+   Story view
+   ============================================== */
+.story-view {
+  padding: 3rem 4rem;
+  margin: 20px auto;
+
+  width: clamp(100px, 75vw, 1100px);
+
+  border-radius: 12px;
+}
+
+.story-view * {
+  margin: 0;
+  text-align: left;
+}
+
+.story-view p {
+  margin-top: 1.6rem;
+}
+
+/* ==============================================
    Utility classes
    ============================================== */
 .shadow {

@@ -10,10 +10,10 @@ P00 -- StoryAlpaca
 {% block title %} View {% endblock %}
 
 {% block body %}
-    <h1> {{ story.title }} </h1>
-    <h2> by {{ story.author }} </h2>
-    <p> {{ story.full_story }} </p>
-    {% if explain is defined %}
-    <p style="color:rgb(255, 0, 0);">{{ explain }}</p>
-    {% endif %}
+    <div class="story-view shadow">
+        <h1> {{ story.title }} </h1>
+        <h2> by {{ story.author }} </h2>
+        <p> {{ story.full_story }} </p>
+        <p><i>You have already contributed to this story, so you can't edit it anymore.</i></p>
+    </div>
 {% endblock %}
