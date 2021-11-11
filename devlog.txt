@@ -159,6 +159,13 @@ having a title of "Untitled Story".
 yoonahC -- 2021-11-11 11:54
 Updated README.md launch codes part
 
+wenhaoD -- 2021-11-11 15:56
+Made username checking be case-insensitive, but made sure the display name still
+matches the casing in the database.
+
 justinZ -- 2021-11-11 16:20
 Updated the design document
 -added a site map and updated each of the templates seen on the document
+
+
+

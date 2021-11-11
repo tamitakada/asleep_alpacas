@@ -50,7 +50,7 @@ def login():
         return render_template('login.html', explain="login information is wrong")
 
     # Adds user and user id to session
-    session["user"] = username
+    session["user"] = database.fetch_username(user_id) # Ensures the displayed username is correct casing
     session["user_id"] = user_id
     return redirect("/")
 

@@ -66,7 +66,7 @@ def fetch_user_id(username, password):
     c.execute("""
         SELECT id
         FROM   users
-        WHERE  username = ?
+        WHERE  LOWER(username) = LOWER(?)
         AND    password = ?
     """, (username, password))
 
@@ -85,9 +85,13 @@ def register_user(username, password):
     """
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
-    for i in c.execute('SELECT username FROM users'):
-        if i[0] == username:
-            return False
+
+    c.execute("SELECT * FROM users WHERE LOWER(username) = LOWER(?)", (username,))
+    row = c.fetchone()
+
+    if row is not None:
+        return False
+
     c.execute("""INSERT INTO users(username,password) VALUES(?, ?)""",(username,password))
     db.commit()
     db.close()
