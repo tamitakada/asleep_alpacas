@@ -82,6 +82,12 @@ article {
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  transition-duration: 0.2s;
+}
+
+article:hover {
+  transform: scale(1.01);
 }
 
 article * {
