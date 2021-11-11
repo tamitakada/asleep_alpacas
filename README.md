@@ -10,9 +10,7 @@
   * Backend Flask Developer
 
 # Description of the Site
-A cool collaborative story telling site where you can make some the wackiest creative stories out there.
-Simply start it off registering with the site and logging then. Then you can go create your own story and see how other people bring it to life, or add to other user's stories.
-However be careful since you can only edit a story once and you can only see the previous update to the story when editing so be careful. You can see all of the stories you have contributed to in your homepage in their entirety. Enjoy!
+A cool collaborative storytelling site where you can make some of the wackiest creative stories out there. Simply start it off by registering with the site and logging then. Then you can go create your own story and see how other people bring it to life or add it to other users' stories. However, be careful since you can only edit a story once and you can only see the previous update to the story when editing. You can see all of the stories you have contributed to on your homepage in their entirety. Enjoy!
 
 
 
