@@ -3,6 +3,7 @@ SoftDev
 P00 -- Move Slowly and Fix Things
 2021-10-28
 
+
 yoonahC -- 2021-10-28 21:40
 Helped revise the design document.
 
@@ -166,6 +167,13 @@ matches the casing in the database.
 justinZ -- 2021-11-11 16:20
 Updated the design document
 -added a site map and updated each of the templates seen on the document
-
+added in design_wiki1 and design_wiki0
+Feedback given for design_wiki0:
+All of our templates and task distribution seemed good
+Our biggest problem was our lack of a component map(we confused site map with component map)
+Feedback given for design_wiki1:
+Also needs a component map, mainly just had a site map
+The database structure could also be more specific
+Good templates and task distribution
 
 
