@@ -146,3 +146,7 @@ Fixed issue with home and discover page story list not escaping html.
 Updated flask app routes to have more readable control flow -- should be working exactly the same, though more thorough testing may be needed.
 Fixed footer to not overlap with content.
 Added css for story list (home and discover pages).
+
+justinZ -- 2021-11-10 20:30
+Added a description of our website to the read me.
+Made sure that we had all of the requirements fullfilled
