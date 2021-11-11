@@ -12,10 +12,13 @@ P00 -- StoryAlpaca
 {% block body %}
   {# https://stackoverflow.com/questions/1465249/get-lengths-of-a-list-in-a-jinja2-template #}
   {% if stories|length == 0 %}
-    <p>
-      No one has created a story yet...
-    </p>
+    <h1>
+      No One Has Created a Story Yet...
+    </h1>
   {% else %}
+    <h1>
+      Browse For Stories:
+    </h1>
     {# show the stories from the database #}
     {% import "macros.jinja" as macros %}
     {{ macros.story_list(stories) }}
