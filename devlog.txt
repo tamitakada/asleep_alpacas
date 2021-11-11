@@ -18,7 +18,7 @@ Set up basic flask server with routes.
 yoonahC -- 2021-11-01 09:08
 Updated requirements.txt to include modules for user to install: https://boscacci.medium.com/why-and-how-to-make-a-requirements-txt-f329c685181e
 
-justinZ -- 2021-11-01 9:15
+justinZ -- 2021-11-01 09:15
 Made a basic structure for the database and added database.py
 
 wenhaoD & lieselW -- 2021-11-01 09:23
