@@ -141,6 +141,8 @@ justinZ -- 2021-11-10 09:48
 Worked on Delegating tasks and getting clearance for macros
 Worked on what the home page looks like when not logged in, and fixed up the bug with view
 
-wenhaoD -- 2021-11-10 18:51
+wenhaoD -- 2021-11-10 19:42
 Fixed issue with home and discover page story list not escaping html.
 Updated flask app routes to have more readable control flow -- should be working exactly the same, though more thorough testing may be needed.
+Fixed footer to not overlap with content.
+Added css for story list (home and discover pages).
