@@ -21,7 +21,11 @@ However be careful since you can only edit a story once and you can only see the
 
 1. Clone Asleep Alpacas' repository: `git clone https://github.com/zou-Justin/asleep_alpacas.git`
 2. Cd into the working directory: `cd asleep_alpacas`
-3. Install the required modules: `pip install -r requirements.txt`
-4. Cd into the next working directory: `cd app`
-5. Run the Python file holding the app: `python3 __init__.py`
-6. In a browser, paste in `https://127.0.0.1:5000/`
+3. Activate virtual environment: `source venv/bin/activate` or `source venv/Scripts/activate`for Windows
+     - If virtual environment is not already created:
+        - Install virtualenv module: `pip install virtualenv`
+        - Create the virtual environment: `python3 -m virtualenv venv`
+5. Install the required modules: `pip install -r requirements.txt`
+6. Cd into the next working directory: `cd app`
+7. Run the Python file holding the app: `python3 __init__.py`
+8. In a browser, paste in `https://127.0.0.1:5000/`
