@@ -90,7 +90,7 @@ legend {
   font-size: 1.2rem;
 }
 
-input, textarea {
+.form-container input, textarea {
   padding: 0.8rem;
   
   font-family: inherit;
@@ -101,16 +101,16 @@ input, textarea {
   border: rgb(189, 189, 189) solid 1px;
 }
 
-input:focus {
+.form-container input:focus {
   border-color: rgb(0, 0, 0);
 }
 
-input[type=submit] {
+.form-container input[type=submit] {
   background-color: white;
   transition-duration: 0.2s;
 }
 
-input[type=submit]:hover {
+.form-container input[type=submit]:hover {
   background-color: rgb(233, 233, 233);
 }
 
@@ -185,6 +185,12 @@ article * {
 /* ==============================================
    Utility classes
    ============================================== */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+   
 .shadow {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
