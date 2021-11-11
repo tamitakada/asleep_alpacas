@@ -89,6 +89,33 @@ article * {
 }
 
 /* ==============================================
+   Add button
+   ============================================== */
+.add-button {
+  --side-length: 3rem;
+
+  font-size: 2rem;
+  line-height: 0;
+
+  width: var(--side-length);
+  height: var(--side-length);
+
+  border-radius: 50%;
+  border: rgb(83, 83, 83) solid 2px;
+  background-color: rgb(255, 255, 255);
+
+  transition-duration: 0.2s;
+}
+
+.add-button:hover {
+  border-radius: 20%;
+  border: rgb(51, 200, 43) solid 2px;
+  background-color: rgb(140, 245, 130);
+
+  transform: scale(1.1);
+}
+
+/* ==============================================
    Utility classes
    ============================================== */
 .shadow {
