@@ -21,7 +21,7 @@ P00 -- StoryAlpaca
       </div>
       <div>
         {% if user is defined and user is not none %}
-          <a id = "user">Hello there User: {{user}}</a>
+          <a id = "user">Hello there, {{user}}!</a>
           <a id="logout"href="/logout">Logout</a>
         {% else %}
           <a id="login" href="/login">Login</a>
