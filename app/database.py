@@ -231,6 +231,10 @@ def create_story(author_id, title, body):
     db = sqlite3.connect(DB_FILE)
     c = db.cursor()
 
+    title = title.strip()
+    if title == "":
+        title = "Untitled Story"
+
     c.execute("""
         INSERT INTO stories(author_id,
                             title,
