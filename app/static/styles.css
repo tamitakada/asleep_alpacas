@@ -1,7 +1,7 @@
 /* The following makes it so that the footer is always at the bottom of the page
    or at the bottom of the screen if the entire page isn't long enough */
 body {
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -36,6 +36,7 @@ nav a {
   color: white;
   text-decoration: none;
 }
+
 nav p {
   color: white;
 }
@@ -52,6 +53,4 @@ footer {
   padding: 0.8rem;
   text-align: center;
   background-color: white;
-
-  width: 100vw;
 }
