@@ -1,5 +1,10 @@
+/* The following makes it so that the footer is always at the bottom of the page
+   or at the bottom of the screen if the entire page isn't long enough */
 body {
+  height: 100%;
   margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ==============================================
@@ -43,12 +48,10 @@ nav a:hover {
    Footer
    ============================================== */
 footer {
+  margin-top: auto;
   padding: 0.8rem;
   text-align: center;
   background-color: white;
-
-  position: fixed;
-  bottom: 0;
 
   width: 100vw;
 }
