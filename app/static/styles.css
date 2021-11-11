@@ -150,7 +150,7 @@ article * {
   height: var(--side-length);
 
   border-radius: 50%;
-  border: rgb(83, 83, 83) solid 2px;
+  border: rgb(0,0,0,0.1) solid 1px;
   background-color: rgb(255, 255, 255);
 
   transition-duration: 0.2s;
@@ -158,8 +158,7 @@ article * {
 
 .add-button:hover {
   border-radius: 20%;
-  border: rgb(51, 200, 43) solid 2px;
-  background-color: rgb(140, 245, 130);
+  background-color: rgb(245, 245, 245);
 
   transform: scale(1.1);
 }
