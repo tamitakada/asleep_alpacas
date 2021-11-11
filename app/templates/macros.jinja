@@ -6,9 +6,39 @@
 {# Displays a box containing the relevant story information #}
 {% macro story_list(stories) %}
   {% for story in stories %}
+    <style>
+    article {
+      padding: 2rem;
+      margin: 2rem auto;
+
+      width: clamp(100px, 75vw, 1100px);
+
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    article a {
+      color: black;
+      text-decoration: none;
+    }
+
+    article a:hover {
+      text-decoration: underline;
+    }
+
+    article :is(h2, h3, p) {
+      margin: 0;
+    }
+    </style>
+
     <article>
-      <a href="/story/{{ story.id }}">{{ story.title|e }}</a> by {{ story.author|e }}
-      <br>
+      <a href="/story/{{ story.id }}">
+        <h2>{{ story.title|e }}</h2>
+      </a>
+      <h3>by {{ story.author|e }}</h3>
       <p>{{ story.last_update|e }}</p>
     </article>
   {% endfor %}
