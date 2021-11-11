@@ -10,6 +10,10 @@ body {
   font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
+main {
+  margin: 8px;
+}
+
 /* ==============================================
    Navbar
    ============================================== */
