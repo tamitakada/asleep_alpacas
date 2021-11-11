@@ -11,11 +11,11 @@ P00 -- StoryAlpaca
 
 {% block body %}
   <form method="POST">
-    <p> Start a new story! </p>
-    <input id="Title" name="Title" placeholder="Title"/>
-    <br>
-    <textarea id="Text" name="Text" rows="20" cols="94" placeholder="Text"></textarea>
-    <br>
-    <input type = "submit" value ="Create">
+    <fieldset class="form-container dyn-medium shadow">
+      <legend> Start a new story! </legend>
+      <input id="Title" name="Title" placeholder="Title"/>
+      <textarea id="Text" name="Text" rows="20" placeholder="Text"></textarea>
+      <input type = "submit" value ="Create">
+    </fieldset>
   </form>
 {% endblock %}

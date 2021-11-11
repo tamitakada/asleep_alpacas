@@ -11,28 +11,29 @@ P00 -- StoryAlpaca
 
 {% block body %}
   <form method="post">
-    <p> Enter your username and password </p>
-    <!-- The pattern /\S+/ is regex for "no whitespace characters" -->
-    <input
-      placeholder="Username"
-      name="username"
-      required
-      pattern="\S+"
-      minlength="1"
-    />
-    <br />
-    <input
-      placeholder="Password"
-      name="password"
-      type="password"
-      required
-      pattern="\S+"
-      minlength="1"
-    />
-    <br />
-    <input type="submit" value="Login" />
-    <br />
-    <p style="color:red;">{{ explain }}</p>
+    <fieldset class="form-container dyn-small shadow">
+      <legend> Enter Your Username and Password </legend>
+      {% if explain is defined %}
+        <p style="color:red;">{{ explain }}</p>
+      {% endif %}
+      <!-- The pattern /\S+/ is regex for "no whitespace characters" -->
+      <input
+        placeholder="Username"
+        name="username"
+        required
+        pattern="\S+"
+        minlength="1"
+      />
+      <input
+        placeholder="Password"
+        name="password"
+        type="password"
+        required
+        pattern="\S+"
+        minlength="1"
+      />
+      <input type="submit" value="Login" />
+    </fieldset>
   </form>
-  <a id="register" href = "/register">Sign Up</a>
+  <p>Don't have an account? <a id="register" href = "/register">Sign up</a></p>
 {% endblock %}

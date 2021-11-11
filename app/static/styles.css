@@ -71,13 +71,54 @@ footer {
 }
 
 /* ==============================================
+   Forms
+   ============================================== */
+.form-container {
+  margin: 2rem auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+
+  border-radius: 8px;
+  border-color: rgb(255, 255, 255);
+}
+
+legend {
+  padding-bottom: 6px;
+  margin: 0 auto; /* Centers the legend */
+  font-size: 1.2rem;
+}
+
+input, textarea {
+  padding: 0.8rem;
+  
+  font-family: inherit;
+  font-size: 1rem;
+
+  outline: none;
+  border-radius: 8px;
+  border: rgb(189, 189, 189) solid 1px;
+}
+
+input:focus {
+  border-color: rgb(0, 0, 0);
+}
+
+input[type=submit] {
+  background-color: white;
+  transition-duration: 0.2s;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+/* ==============================================
    Story list (article tags)
    ============================================== */
 article {
-  padding: 2rem;
   margin: 2rem auto;
-
-  width: clamp(100px, 75vw, 1100px);
 
   display: flex;
   flex-direction: column;
@@ -127,10 +168,7 @@ article * {
    Story view
    ============================================== */
 .story-view {
-  padding: 3rem 4rem;
   margin: 20px auto;
-
-  width: clamp(100px, 75vw, 1100px);
 
   border-radius: 12px;
 }
@@ -149,4 +187,19 @@ article * {
    ============================================== */
 .shadow {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.dyn-small {
+  padding: 2rem;
+  width: clamp(100px, 50vw, 600px);
+}
+
+.dyn-medium {
+  padding: 2.5rem;
+  width: clamp(120px, 60vw, 1000px);
+}
+
+.dyn-large {
+  padding: 3rem 4rem;
+  width: clamp(200px, 75vw, 1100px);
 }
