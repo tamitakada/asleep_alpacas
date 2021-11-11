@@ -10,12 +10,12 @@ P00 -- StoryAlpaca
 {% block title %} Home {% endblock %}
 {% block body %}
   {% if user is not defined %}
-    <h1>Please <a class="hoverline" href="/login">Log In</a> to View Your Stories</h1>
+    <h1>Please <a class="hoverline" href="/login">log in</a> to view your stories</h1>
   {% endif %} 
   {% if stories is defined and stories is not none %}
     {# showing stories user has already done #}
     {% import "macros.jinja" as macros %}
-    <h1>Your Stories Below:</h1>
+    <h1>Your stories below:</h1>
     {{ macros.story_list(stories) }}
   {% endif %}
 {% endblock %}
