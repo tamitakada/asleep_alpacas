@@ -169,6 +169,13 @@ Updated the design document
 -updated the site map a bit more
 added in design_wiki1 and design_wiki0
 
+REVISIONS FOR DESIGN.PDF: 
+Edited components list for clarity
+Removed typos
+Added and edit site map
+Redesigned template representations for clarity and style
+Add two template files and descriptions of those files to components list
+
 FEEDBACK GIVEN FOR DESIGN_WIKI0: 
 Good templates and task distribution 
 Our biggest problem was our lack of a component map(we confused site map with component map)
