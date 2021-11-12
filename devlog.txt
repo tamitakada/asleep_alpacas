@@ -166,6 +166,7 @@ matches the casing in the database.
 justinZ -- 2021-11-11 16:20
 Updated the design document
 -added a site map and updated each of the templates seen on the document
+-updated the site map a bit more
 added in design_wiki1 and design_wiki0
 
 FEEDBACK GIVEN FOR DESIGN_WIKI0: 
