@@ -19,7 +19,6 @@ A cool collaborative storytelling site where you can make some of the wackiest c
 
 1. Activate virtual environment: `source <name>/bin/activate` or `source <name>/Scripts/activate` for Windows
      - If virtual environment is not already created:
-        - Install virtualenv module: `pip install virtualenv`
         - Create the virtual environment: `python3 -m venv <name>`
 2. Clone Asleep Alpacas' repository: `git clone https://github.com/zou-Justin/asleep_alpacas.git`
 3. Cd into the working directory: `cd asleep_alpacas`
