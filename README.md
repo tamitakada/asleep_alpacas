@@ -17,13 +17,12 @@ A cool collaborative storytelling site where you can make some of the wackiest c
 
 # Launch Codes:
 
-1. Clone Asleep Alpacas' repository: `git clone https://github.com/zou-Justin/asleep_alpacas.git`
-2. Cd into the working directory: `cd asleep_alpacas`
-3. Activate virtual environment: `source <name>/bin/activate` or `source <name>/Scripts/activate` for Windows
+1. Activate virtual environment: `source <name>/bin/activate` or `source <name>/Scripts/activate` for Windows
      - If virtual environment is not already created:
-        - Install virtualenv module: `pip install virtualenv`
         - Create the virtual environment: `python3 -m venv <name>`
-5. Install the required modules: `pip install -r requirements.txt`
-6. Cd into the next working directory: `cd app`
-7. Run the Python file holding the app: `python3 __init__.py`
-8. In a browser, paste in `https://127.0.0.1:5000/`
+2. Clone Asleep Alpacas' repository: `git clone https://github.com/zou-Justin/asleep_alpacas.git`
+3. Cd into the working directory: `cd asleep_alpacas`
+4. Install the required modules: `pip install -r requirements.txt`
+5. Cd into the next working directory: `cd app`
+6. Run the Python file holding the app: `python3 __init__.py`
+7. In a browser, paste in `https://127.0.0.1:5000/`
