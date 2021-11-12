@@ -167,12 +167,14 @@ justinZ -- 2021-11-11 16:20
 Updated the design document
 -added a site map and updated each of the templates seen on the document
 added in design_wiki1 and design_wiki0
-Feedback given for design_wiki0:
-All of our templates and task distribution seemed good
+
+FEEDBACK GIVEN FOR DESIGN_WIKI0: 
+Good templates and task distribution 
 Our biggest problem was our lack of a component map(we confused site map with component map)
-Feedback given for design_wiki1:
-Also needs a component map, mainly just had a site map
-The database structure could also be more specific
+
+FEEDBACK GIVEN FOR DESIGN_WIKI1:
+Needs a component map in addition to existing site map
+More specific database structure 
 Good templates and task distribution
 
 
