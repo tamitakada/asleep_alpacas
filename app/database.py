@@ -1,3 +1,8 @@
+# Asleep Alpacas: Justin Zou, Yoonah Chang, Wen Hao Dong, Liesel Wong
+# SoftDev
+# P00 -- StoryAlpaca
+# 2021-11-12
+
 import sqlite3
 
 # from flask import Flask
