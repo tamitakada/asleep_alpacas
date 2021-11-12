@@ -17,7 +17,7 @@ A cool collaborative storytelling site where you can make some of the wackiest c
 
 # Launch Codes:
 
-1.Activate virtual environment: `source <name>/bin/activate` or `source <name>/Scripts/activate` for Windows
+1. Activate virtual environment: `source <name>/bin/activate` or `source <name>/Scripts/activate` for Windows
      - If virtual environment is not already created:
         - Install virtualenv module: `pip install virtualenv`
         - Create the virtual environment: `python3 -m venv <name>`
