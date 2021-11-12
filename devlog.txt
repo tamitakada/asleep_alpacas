@@ -137,6 +137,9 @@ wenhaoD -- 2021-11-10 9:20
 Updated fetch_story, fetch_all_stories, and fetch_contributions to also get the author name.
 Updated templates to use the story dictionary's new author value.
 
+lieselW -- 2021-11-20 9:41
+Started creating site map
+
 justinZ -- 2021-11-10 09:48
 Worked on Delegating tasks and getting clearance for macros
 Worked on what the home page looks like when not logged in, and fixed up the bug with view
