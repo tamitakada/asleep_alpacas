@@ -169,6 +169,14 @@ Updated the design document
 -updated the site map a bit more
 added in design_wiki1 and design_wiki0
 
+lieselW - 2021-11-11 22:58
+Updated design document with improved site map
+Checked website met all requirements 
+Checked design document met all requirements
+Checked github met all requirements 
+Added revisions for design.pdf
+Edited feedback for other two design_wikis
+
 REVISIONS FOR DESIGN.PDF: 
 Edited components list for clarity
 Removed typos
