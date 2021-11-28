@@ -11,15 +11,17 @@ P00 -- StoryAlpaca
 
 {% block body %}
     <form method="post" action="/register">
-      <fieldset class="form-container dyn-small shadow">
-        <legend> Create an account </legend>
-        {% if explain is defined %}
-          <p style="color:red;">{{ explain }}</p>
-        {% endif %}
-        <input type="text" name="newusername" placeholder="Username">
-        <input type="password" name="newpassword" placeholder="Password">
-        <input type="submit" name="sub" value="Sign Up">
-      </fieldset>
+      <div class="form centerFlex">
+        <div class="outline centerFlex" style="flex-direction: column; gap: 20px;">
+          <legend style="color: white;"> Create an account </legend>
+          {% if explain is defined %}
+            <p style="color:red;">{{ explain }}</p>
+          {% endif %}
+          <input type="text" name="newusername" placeholder="Username" class="formField">
+          <input type="password" name="newpassword" placeholder="Password" class="formField">
+          <input type="submit" name="sub" value="Sign Up" class="submitButton">
+          </div>
+      </div>
     </form>
-    <a id="login" class="flex-center" href="/login">Already have an account? Log in</a>
+    <a id="login" style="background-color: powderblue; padding: 10px; color: white;" class="centerFlex" href="/login">Already have an account? Log in</a>
 {% endblock %}

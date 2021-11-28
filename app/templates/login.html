@@ -11,29 +11,34 @@ P00 -- StoryAlpaca
 
 {% block body %}
   <form method="post">
-    <fieldset class="form-container dyn-small shadow">
-      <legend> Enter your username and password </legend>
-      {% if explain is defined %}
-        <p style="color:red;">{{ explain }}</p>
-      {% endif %}
-      <!-- The pattern /\S+/ is regex for "no whitespace characters" -->
-      <input
-        placeholder="Username"
-        name="username"
-        required
-        pattern="\S+"
-        minlength="1"
-      />
-      <input
-        placeholder="Password"
-        name="password"
-        type="password"
-        required
-        pattern="\S+"
-        minlength="1"
-      />
-      <input type="submit" value="Login" />
-    </fieldset>
+    <div class="form centerFlex">
+      <div class="outline centerFlex" style="flex-direction: column; gap: 20px;">
+        <legend style="color: white;"> Enter your username and password </legend>
+        {% if explain is defined %}
+          <p style="color:red;">{{ explain }}</p>
+        {% endif %}
+        <!-- The pattern /\S+/ is regex for "no whitespace characters" -->
+        <input
+          placeholder="Username"
+          name="username"
+          required
+          pattern="\S+"
+          minlength="1"
+          class="formField"
+        />
+        <input
+          placeholder="Password"
+          name="password"
+          type="password"
+          required
+          pattern="\S+"
+          minlength="1"
+          class="formField"
+        />
+        <input type="submit" value="Login" class="submitButton" />
+      </div>
+    </div>
   </form>
-  <a id="register" class="flex-center" href = "/register">Don't have an account? Sign up</a>
+  
+  <a id="register" style="background-color: powderblue; padding: 10px; color: white;" class="centerFlex" href = "/register">Don't have an account? Sign up</a>
 {% endblock %}

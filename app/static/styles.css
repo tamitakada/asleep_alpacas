@@ -1,3 +1,7 @@
+:root {
+    --yellow: rgb(224, 221, 30);
+}
+
 body, html {
     margin: 0;
     height: 100%;
@@ -44,8 +48,36 @@ footer {
 
 #homeMessage {
     margin: 0;
-    background-color: rgb(224, 221, 30);
+    background-color: var(--yellow);
     padding: 10px;
+    color: white;
+}
+
+/* login.html */
+
+.form {
+    background-color: var(--yellow);
+    padding: 10px;
+}
+
+.formField {
+    color: white;
+    background-color: transparent;
+    border-style: none none solid none;
+    border-color: white;
+    border-width: 3px;
+    min-width: 200px;
+}
+
+.submitButton {
+    background-color: transparent;
+    border: 2px solid black;
+    color: black;
+    padding: 3px 15px;
+}
+
+.submitButton:hover {
+    background-color: black;
     color: white;
 }
 
@@ -60,6 +92,7 @@ footer {
 .outline {
     border: 2px solid white;
     padding: 20px;
+    width: 100%;
 }
 
 /* general */
