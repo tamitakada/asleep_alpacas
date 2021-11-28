@@ -60,8 +60,7 @@ footer {
     padding: 10px;
 }
 
-.formField {
-    color: white;
+input, textarea {
     background-color: transparent;
     border-style: none none solid none;
     border-color: white;
