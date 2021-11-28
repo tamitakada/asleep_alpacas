@@ -1,11 +1,40 @@
-body {
+body, html {
     margin: 0;
+    height: 100%;
 }
+
+/* nav styling */
 
 nav {
     padding: 20px;
     background-color: powderblue;
 }
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+nav div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* other parts of layout.html */
+
+main {
+    padding: 30px;
+    min-height: 100%;
+}
+
+footer {
+    background-color: darkblue;
+    padding: 10px;
+    color: white;
+}
+
+/* home.html */
 
 #home {
     color: white;
@@ -13,11 +42,32 @@ nav {
     font-weight: bold;
 }
 
-a:hover {
-    text-shadow: 2px 2px black;
+#homeMessage {
+    margin: 0;
+    background-color: rgb(224, 221, 30);
+    padding: 10px;
+    color: white;
 }
 
-nav a {
+/* custom classes for general use */
+
+.centerFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.outline {
+    border: 2px solid white;
+    padding: 20px;
+}
+
+/* general */
+
+a {
     text-decoration: none;
-    color: white;
+}
+
+a:hover {
+    text-shadow: 2px 2px black;
 }

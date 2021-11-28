@@ -10,7 +10,11 @@ P00 -- StoryAlpaca
 {% block title %} Home {% endblock %}
 {% block body %}
   {% if user is not defined %}
-    <h1>Please <a class="hoverline" href="/login">log in</a> to view your stories</h1>
+    <div id="homeMessage">
+      <div class="outline centerFlex">
+        <h1>Please <a href="/login" style="color: white; text-decoration: underline;">log in</a> to view your stories</h1>
+      </div>
+    </div>
   {% endif %} 
   {% if stories is defined and stories is not none %}
     {# showing stories user has already done #}

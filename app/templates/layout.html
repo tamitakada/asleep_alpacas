@@ -14,12 +14,10 @@ P00 -- StoryAlpaca
   </head>
   <body>
     <nav>
+      <a id="home" href="/"> 🦙 Story Alpaca </a>
       <div>
-        <a id="home" href="/"> 🦙 Story Alpaca </a>
         <a id="create" href="/create">New</a>
         <a id="discover" href="/discover">Discover</a>
-      </div>
-      <div>
         {% if user is defined and user is not none %}
           <a id = "user">Hello there, {{user}}!</a>
           <a id="logout"href="/logout">Logout</a>
