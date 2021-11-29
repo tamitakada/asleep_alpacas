@@ -15,8 +15,13 @@ P00 -- StoryAlpaca
     <h2> by {{ story.author }} </h2>
     <p> ...{{ story.last_update }} </p>
   </div>
-  <form method="post" class="form-container dyn-medium shadow">
-    <textarea id="text" name="Text" rows="16" placeholder="Continue the story..."></textarea>
-    <input type="submit" value="Add!" />
+  
+  <form method="post">
+    <div class="form centerFlex">
+      <div class="outline centerFlex" style="flex-direction: column; gap: 20px; align-items: stretch;">
+        <textarea id="text" name="Text" rows="16" placeholder="Continue the story..."></textarea>
+        <div class="centerFlex"><input type="submit" value="Add!" class="submitButton" /></div>
+      </div>
+    </div>
   </form>
 {% endblock %}

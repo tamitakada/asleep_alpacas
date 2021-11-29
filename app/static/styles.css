@@ -7,6 +7,30 @@ body, html {
     height: 100%;
 }
 
+/* fonts */
+
+@font-face {
+    font-family: RalewayLight;
+    src: url('/static/Raleway-Light.ttf');
+}
+
+@font-face {
+    font-family: RalewayMedium;
+    src: url('/static/Raleway-Medium.ttf');
+}
+
+h1 {
+    font-family: RalewayMedium;
+}
+
+h3 {
+    font-family: RalewayLight;
+}
+
+p {
+    font-family: RalewayLight;
+}
+
 /* nav styling */
 
 nav {
@@ -36,6 +60,7 @@ footer {
     background-color: darkblue;
     padding: 10px;
     color: white;
+    font-family: RalewayLight;
 }
 
 /* home.html */
@@ -43,7 +68,7 @@ footer {
 #home {
     color: white;
     font-size: 30px;
-    font-weight: bold;
+    font-family: RalewayMedium;
 }
 
 #homeMessage {
@@ -66,6 +91,7 @@ input, textarea {
     border-color: white;
     border-width: 3px;
     min-width: 200px;
+    font-family: RalewayLight;
 }
 
 .submitButton {
@@ -98,8 +124,25 @@ input, textarea {
 
 a {
     text-decoration: none;
+    font-family: RalewayLight;
 }
 
 a:hover {
     text-shadow: 2px 2px black;
+}
+
+article {
+    background-color: var(--yellow);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px 0;
+}
+
+article h2 {
+    font-family: RalewayMedium;
+    color: white;
+}
+
+article h3 {
+    color: white;
 }
